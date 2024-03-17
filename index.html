@@ -1,14 +1,60 @@
-<table style="border: 1px #ff0026 solid">
-	<tbody>
-		<tr>
-			<td style="border: 1px #ff0026 solid">Cell 1x1</td>
-			<td style="border: 1px #ff0026 solid">Cell 2x1</td>
-			<td style="border: 1px #ff0026 solid">Cell 3x1</td>
-		</tr>
-		<tr>
-			<td style="border: 1px #ff0026 solid">Cell 1x2</td>
-			<td style="border: 1px #ff0026 solid">Cell 2x2</td>
-			<td style="border: 1px #ff0026 solid">Cell 3x2</td>
-		</tr>
-	</tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汽车圈速榜</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>汽车圈速榜</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>车类别</th>
+                <th>厂商</th>
+                <th>车型</th>
+                <th>型号</th>
+                <th>圈速</th>
+                <th>零百加速</th>
+                <th>百六加速</th>
+                <th>马力</th>
+                <th>生产年份</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody id="carData">
+            <!-- 这里的数据将由JavaScript动态生成 -->
+        </tbody>
+    </table>
+
+    <script>
+        // 从cars.json文件中获取数据
+        fetch('cars.json')
+            .then(response => response.json())
+            .then(data => {
+                const carData = document.getElementById('carData');
+                data.forEach(car => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${car.排名}</td>
+                        <td>${car.车类别}</td>
+                        <td>${car.厂商}</td>
+                        <td>${car.车型}</td>
+                        <td>${car.型号}</td>
+                        <td>${car.圈速}</td>
+                        <td>${car.零百加速}</td>
+                        <td>${car.百六加速}</td>
+                        <td>${car.马力}</td>
+                        <td>${car.生产年份}</td>
+                        <td>${car.备注}</td>
+                    `;
+                    carData.appendChild(row);
+                });
+            })
+            .catch(error => console.error('获取数据时出错：', error));
+    </script>
+</body>
+</html>
+
