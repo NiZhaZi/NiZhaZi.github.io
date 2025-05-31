@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲汽车官网</title>
-    <link rel="icon" type="image/svg" href="/svg/foral_logo_black.svg">
+    <title>FORAL | 风傲汽车</title>
+    <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -796,7 +796,7 @@
             <section id="vehicle-types">
                 <h2 style="margin-bottom: 30px; color: var(--secondary);">选择您的车辆类型</h2>
                 <div class="vehicle-types">
-                    <div class="type-card" onclick="selectType('轿车')">
+                    <div class="type-card" onclick="selectType('sedan')">
                         <!-- <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="轿车"> -->
                         <img src="images/Sedan.png" alt="轿车">
                         <div class="type-content">
@@ -1371,6 +1371,7 @@
         function selectType(type) {
             // showPage('model');
             window.location.href = "models_sedan.html";
+            window.location.href = "models_" + type + ".html";
         }
         
         // 车型选择

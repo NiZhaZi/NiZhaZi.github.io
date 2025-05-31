@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲 选择您的轿车</title>
-    <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
+    <title>FORAL | 风傲 广汽风傲 KUNA</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -748,80 +748,7 @@
         .back-btn i {
             margin-right: 8px;
         }
-
     </style>
-        
-    <style>
-
-        /* .model-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .model-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        } */
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .image-container .default-img {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .image-container .hover-img {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-
-        .image-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
-            height: 200px;
-            position: relative;
-        }
-        
-        .image-card:hover {
-            /* transform: translateY(-10px) scale(1.02); */
-        }
-
-        .image-card:hover .default-img {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-        
-        .image-card:hover .hover-img {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .model-image .hover-img {
-            clip-path: circle(75%);
-        }
-
-    </style>
-
 </head>
 <body>
     <!-- 导航栏 -->
@@ -849,97 +776,136 @@
         </div>
     </header>
         
-        <!-- 车型选择页面 -->
+        <!-- 配置选装页面 -->
         <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回</a>
+            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
-                <h1>选择您的车型</h1>
-                <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
+                <h1>定制您的爱车</h1>
+                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
             </div>
             
-            <div class="model-selection">
-                <div class="model-card">
-                    <div class="image-card model-image">
-                        <div class="image-container">
-                        <!-- <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="凯美瑞"> -->
-                         <img src="images/foral_kuna/S.png" alt="kunaS" class="default-img">
-                         <img src="images/foral_kuna/F.png" alt="kunaF" class="hover-img">
+            <div class="config-container">
+                <div class="config-options">
+                    <div class="option-group">
+                        <h3>外观颜色</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白')">
+                                <h4>珍珠白</h4>
+                                <p>优雅经典，适合各种场合</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰')">
+                                <h4>金属灰</h4>
+                                <p>现代感十足，彰显个性</p>
+                                <div class="option-price">+¥2,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红')">
+                                <h4>烈焰红</h4>
+                                <p>热情奔放，路上焦点</p>
+                                <div class="option-price">+¥3,000</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="model-info">
-                        <h3>kuna</h3>
-                        <div class="model-price">¥189,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">豪华内饰</span>
+                    
+                    <div class="option-group">
+                        <h3>内饰风格</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革')">
+                                <h4>黑色皮革</h4>
+                                <p>经典稳重，易于打理</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮')">
+                                <h4>米色真皮</h4>
+                                <p>温馨舒适，提升豪华感</p>
+                                <div class="option-price">+¥5,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑')">
+                                <h4>运动红黑</h4>
+                                <p>激情动感，驾驶乐趣</p>
+                                <div class="option-price">+¥4,500</div>
+                            </div>
                         </div>
-                        <p>旗舰级轿车，融合先进技术与豪华舒适</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('kuna')">选择此车型</button>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>科技选装包</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版')">
+                                <h4>基础版</h4>
+                                <p>标配科技功能</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包')">
+                                <h4>智能安全包</h4>
+                                <p>包含自适应巡航、盲点监测等</p>
+                                <div class="option-price">+¥12,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包')">
+                                <h4>豪华科技包</h4>
+                                <p>包含HUD、360影像、高级音响</p>
+                                <div class="option-price">+¥25,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>轮毂选择</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂')">
+                                <h4>17英寸合金轮毂</h4>
+                                <p>标准配置</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂')">
+                                <h4>18英寸运动轮毂</h4>
+                                <p>增强操控性和外观</p>
+                                <div class="option-price">+¥8,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂')">
+                                <h4>19英寸豪华轮毂</h4>
+                                <p>豪华大气，提升整体质感</p>
+                                <div class="option-price">+¥15,000</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="卡罗拉">
+                <div class="config-preview">
+                    <h3>预览</h3>
+                    <div class="preview-image">
+                        <img src="../images/foral_kuna/F.png" alt="车辆预览">
                     </div>
-                    <div class="model-info">
-                        <h3>卡罗拉</h3>
-                        <div class="model-price">¥129,800起</div>
-                        <div class="model-features">
-                            <span class="feature">经济省油</span>
-                            <span class="feature">可靠耐用</span>
-                            <span class="feature">智能互联</span>
+                    
+                    <div class="price-summary">
+                        <h4>价格明细</h4>
+                        <div class="price-item">
+                            <span>基础车型</span>
+                            <span>¥189,800</span>
                         </div>
-                        <p>全球最畅销轿车，品质与价值的完美结合</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('卡罗拉')">选择此车型</button>
+                        <div class="price-item">
+                            <span>珍珠白</span>
+                            <span>¥0</span>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="RAV4荣放">
-                    </div>
-                    <div class="model-info">
-                        <h3>RAV4荣放</h3>
-                        <div class="model-price">¥179,800起</div>
-                        <div class="model-features">
-                            <span class="feature">四轮驱动</span>
-                            <span class="feature">宽敞空间</span>
-                            <span class="feature">越野性能</span>
+                        <div class="price-item">
+                            <span>黑色皮革内饰</span>
+                            <span>¥0</span>
                         </div>
-                        <p>城市SUV标杆，兼具时尚与多功能性</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('RAV4荣放')">选择此车型</button>
+                        <div class="price-item">
+                            <span>基础科技包</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span>17英寸合金轮毂</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <span>¥189,800</span>
                         </div>
                     </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="普锐斯">
-                    </div>
-                    <div class="model-info">
-                        <h3>普锐斯</h3>
-                        <div class="model-price">¥229,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">超低油耗</span>
-                            <span class="feature">环保先锋</span>
-                        </div>
-                        <p>全球首款量产混合动力车，引领环保潮流</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('普锐斯')">选择此车型</button>
-                        </div>
-                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
                 </div>
             </div>
         </div>
@@ -1023,7 +989,7 @@
         // 返回上一页
         function goBack(targetPage) {
             // showPage(targetPage);
-            window.location.href = "index.html";
+            window.location.href = "../models_sedan.html";
         }
         
         // 车辆类型选择
@@ -1033,8 +999,7 @@
         
         // 车型选择
         function selectModel(model) {
-            // showPage('config');
-            window.location.href = model + "/" + model + ".html";
+            showPage('config');
         }
         
         // 配置选项选择
