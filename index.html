@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORAL | 风傲汽车官网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #eb0a1e;
+            --secondary: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark: #212529;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo svg {
+            height: 40px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active:after {
+            width: 100%;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c9091a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(235, 10, 30, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* 主内容区样式 */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 70vh;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .page-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        
+        /* 车辆类型选择 */
+        .vehicle-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .type-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .type-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .type-content {
+            padding: 20px;
+        }
+        
+        .type-content h3 {
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .type-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .type-content .btn {
+            width: 100%;
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* 车型选择页面 */
+        .model-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .model-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .model-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .model-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .model-card:hover .model-image img {
+            transform: scale(1.05);
+        }
+        
+        .model-info {
+            padding: 20px;
+        }
+        
+        .model-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .model-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .model-features {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .feature {
+            background: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .model-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* 配置选择页面 */
+        .config-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        .config-options {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .config-preview {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 100px;
+        }
+        
+        .option-group {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .option-group h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .option-card {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .option-card:hover {
+            border-color: var(--primary);
+        }
+        
+        .option-card.selected {
+            border-color: var(--primary);
+            background: rgba(235, 10, 30, 0.05);
+        }
+        
+        .option-card h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .option-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        
+        .option-price {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .preview-image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .price-summary {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #ddd;
+        }
+        
+        /* 预览页面 */
+        .preview-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .preview-details {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-section {
+            margin-bottom: 30px;
+        }
+        
+        .detail-section h3 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .preview-image-large {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* 品牌介绍页面样式 */
+        .about-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            margin-top: 50px;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content:before {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content:before {
+            left: -50px;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .timeline-content .date {
+            display: block;
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-container:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                left: 0 !important;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content:before {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content:before {
+                left: 20px;
+            }
+            
+            .config-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .preview-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .vehicle-types, .model-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* 页面切换效果 */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .back-btn {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="100" cy="50" rx="80" ry="40" fill="#eb0a1e" />
+                    <text x="100" y="60" font-family="Arial" font-size="40" fill="white" text-anchor="middle" font-weight="bold">FORAL</text>
+                </svg>
+                <span class="logo-text">风傲汽车</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
+                <li><a href="#">最新资讯</a></li>
+                <li><a href="#">经销商查询</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">预约试驾</a>
+                <a href="#" class="btn btn-primary">我的风傲</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-Photo" style="position: relative;">
+        <img src="images/mainPhoto.png" alt="main Photo" style="width: 100%; margin: 0 auto; ">
+        <!-- <input type="button" style="position: absolute; left: 10px; top: 10px;"> -->
+        <img src="svg/foral_logo.svg" alt="foral logo" 
+            style="width: 10%; position: absolute; left: 50%; top: 15%; transform: translateX(-50%) translateY(-50%); "
+        >
+    </div>
+
+    <!-- 主内容区 - 首页 -->
+    <div class="main-container">
+        <div class="page active" id="home-page">
+            <div class="page-title">
+                <h1>探索风傲世界</h1>
+                <p>从高效能的混合动力系统到令人兴奋的极致驾驶体验，风傲汽车为您提供多样化选择</p>
+            </div>
+            
+            <!-- 车辆类型选择 -->
+            <section id="vehicle-types">
+                <h2 style="margin-bottom: 30px; color: var(--secondary);">选择您的车辆类型</h2>
+                <div class="vehicle-types">
+                    <div class="type-card" onclick="selectType('轿车')">
+                        <!-- <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="轿车"> -->
+                        <img src="images/Sedan.png" alt="轿车">
+                        <div class="type-content">
+                            <h3>轿车</h3>
+                            <p>优雅设计，舒适驾乘，城市通勤的理想选择</p>
+                            <div class="btn btn-primary">选择此类型</div>
+                        </div>
+                    </div>
+                    
+                    <div class="type-card" onclick="selectType('SUV')">
+                        <!-- <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="SUV"> -->
+                         <img src="images/SUV.png" alt="SUV">
+                        <div class="type-content">
+                            <h3>SUV</h3>
+                            <p>多功能空间，强大性能，适应各种路况</p>
+                            <div class="btn btn-primary">选择此类型</div>
+                        </div>
+                    </div>
+                    
+                    <div class="type-card" onclick="selectType('跑车')">
+                        <!-- <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="跑车"> -->
+                        <img src="images/SportCar.png" alt="跑车">
+                        <div class="type-content">
+                            <h3>跑车</h3>
+                            <p>澎湃动力，精准操控，释放驾驶激情</p>
+                            <div class="btn btn-primary">选择此类型</div>
+                        </div>
+                    </div>
+                    
+                    <div class="type-card" onclick="selectType('MPV')">
+                        <!-- <img src="https://images.unsplash.com/photo-1621330396177-9d07e9a9d7b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="MPV"> -->
+                        <img src="images/MPV.png" alt="MPV">
+                        <div class="type-content">
+                            <h3>MPV</h3>
+                            <p>宽敞空间，灵活布局，家庭出行的完美伙伴</p>
+                            <div class="btn btn-primary">选择此类型</div>
+                        </div>
+                    </div>
+
+                    <div class="type-card" onclick="selectType('新能源')">
+                        <img src="images/NewEnergy.png" alt="新能源">
+                        <div class="type-content">
+                            <h3>新能源</h3>
+                            <p>绿色出行，环保先锋</p>
+                            <div class="btn btn-primary">选择此类型</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- 车型选择页面 -->
+        <div class="page" id="model-page">
+            <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回车辆类型</a>
+            <div class="page-title">
+                <h1>选择您的车型</h1>
+                <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
+            </div>
+            
+            <div class="model-selection">
+                <div class="model-card">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="凯美瑞">
+                    </div>
+                    <div class="model-info">
+                        <h3>凯美瑞</h3>
+                        <div class="model-price">¥189,800起</div>
+                        <div class="model-features">
+                            <span class="feature">混合动力</span>
+                            <span class="feature">智能安全系统</span>
+                            <span class="feature">豪华内饰</span>
+                        </div>
+                        <p>旗舰级轿车，融合先进技术与豪华舒适</p>
+                        <div class="model-actions">
+                            <button class="btn btn-outline">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('凯美瑞')">选择此车型</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="卡罗拉">
+                    </div>
+                    <div class="model-info">
+                        <h3>卡罗拉</h3>
+                        <div class="model-price">¥129,800起</div>
+                        <div class="model-features">
+                            <span class="feature">经济省油</span>
+                            <span class="feature">可靠耐用</span>
+                            <span class="feature">智能互联</span>
+                        </div>
+                        <p>全球最畅销轿车，品质与价值的完美结合</p>
+                        <div class="model-actions">
+                            <button class="btn btn-outline">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('卡罗拉')">选择此车型</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="RAV4荣放">
+                    </div>
+                    <div class="model-info">
+                        <h3>RAV4荣放</h3>
+                        <div class="model-price">¥179,800起</div>
+                        <div class="model-features">
+                            <span class="feature">四轮驱动</span>
+                            <span class="feature">宽敞空间</span>
+                            <span class="feature">越野性能</span>
+                        </div>
+                        <p>城市SUV标杆，兼具时尚与多功能性</p>
+                        <div class="model-actions">
+                            <button class="btn btn-outline">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('RAV4荣放')">选择此车型</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-image">
+                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="普锐斯">
+                    </div>
+                    <div class="model-info">
+                        <h3>普锐斯</h3>
+                        <div class="model-price">¥229,800起</div>
+                        <div class="model-features">
+                            <span class="feature">混合动力</span>
+                            <span class="feature">超低油耗</span>
+                            <span class="feature">环保先锋</span>
+                        </div>
+                        <p>全球首款量产混合动力车，引领环保潮流</p>
+                        <div class="model-actions">
+                            <button class="btn btn-outline">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('普锐斯')">选择此车型</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 配置选装页面 -->
+        <div class="page" id="config-page">
+            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回车型选择</a>
+            <div class="page-title">
+                <h1>定制您的爱车</h1>
+                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
+            </div>
+            
+            <div class="config-container">
+                <div class="config-options">
+                    <div class="option-group">
+                        <h3>外观颜色</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白')">
+                                <h4>珍珠白</h4>
+                                <p>优雅经典，适合各种场合</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰')">
+                                <h4>金属灰</h4>
+                                <p>现代感十足，彰显个性</p>
+                                <div class="option-price">+¥2,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红')">
+                                <h4>烈焰红</h4>
+                                <p>热情奔放，路上焦点</p>
+                                <div class="option-price">+¥3,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>内饰风格</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革')">
+                                <h4>黑色皮革</h4>
+                                <p>经典稳重，易于打理</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮')">
+                                <h4>米色真皮</h4>
+                                <p>温馨舒适，提升豪华感</p>
+                                <div class="option-price">+¥5,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑')">
+                                <h4>运动红黑</h4>
+                                <p>激情动感，驾驶乐趣</p>
+                                <div class="option-price">+¥4,500</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>科技选装包</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版')">
+                                <h4>基础版</h4>
+                                <p>标配科技功能</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包')">
+                                <h4>智能安全包</h4>
+                                <p>包含自适应巡航、盲点监测等</p>
+                                <div class="option-price">+¥12,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包')">
+                                <h4>豪华科技包</h4>
+                                <p>包含HUD、360影像、高级音响</p>
+                                <div class="option-price">+¥25,000</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h3>轮毂选择</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂')">
+                                <h4>17英寸合金轮毂</h4>
+                                <p>标准配置</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂')">
+                                <h4>18英寸运动轮毂</h4>
+                                <p>增强操控性和外观</p>
+                                <div class="option-price">+¥8,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂')">
+                                <h4>19英寸豪华轮毂</h4>
+                                <p>豪华大气，提升整体质感</p>
+                                <div class="option-price">+¥15,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="config-preview">
+                    <h3>您的配置预览</h3>
+                    <div class="preview-image">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="车辆预览">
+                    </div>
+                    
+                    <div class="price-summary">
+                        <h4>价格明细</h4>
+                        <div class="price-item">
+                            <span>基础车型</span>
+                            <span>¥189,800</span>
+                        </div>
+                        <div class="price-item">
+                            <span>珍珠白</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span>黑色皮革内饰</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span>基础科技包</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span>17英寸合金轮毂</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <span>¥189,800</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 价格预览页面 -->
+        <div class="page" id="preview-page">
+            <a href="#" class="back-btn" onclick="goBack('config-page')"><i class="fas fa-arrow-left"></i> 返回配置选择</a>
+            <div class="page-title">
+                <h1>您的风傲配置</h1>
+                <p>查看您精心选择的配置和最终价格</p>
+            </div>
+            
+            <div class="preview-container">
+                <div class="preview-details">
+                    <div class="preview-image-large">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="车辆预览">
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>车辆信息</h3>
+                        <div class="detail-item">
+                            <span>车型</span>
+                            <span>凯美瑞 2.5L 豪华版</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>外观颜色</span>
+                            <span>珍珠白</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>内饰风格</span>
+                            <span>黑色皮革</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>轮毂</span>
+                            <span>17英寸合金轮毂</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>选装配置</h3>
+                        <div class="detail-item">
+                            <span>科技包</span>
+                            <span>基础版</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>附加配置</span>
+                            <span>无</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>价格明细</h3>
+                        <div class="detail-item">
+                            <span>基础车型价格</span>
+                            <span>¥189,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>选装配置</span>
+                            <span>¥0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>购置税</span>
+                            <span>¥16,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>保险</span>
+                            <span>¥8,500</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>上牌费</span>
+                            <span>¥1,000</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <span>¥216,100</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('config-page')">修改配置</button>
+                        <button class="btn btn-primary" style="flex: 1;">预约试驾</button>
+                        <button class="btn btn-primary" style="flex: 1;">立即订购</button>
+                    </div>
+                </div>
+                
+                <div class="preview-details">
+                    <h3>交付信息</h3>
+                    <div class="detail-item">
+                        <span>预计交付时间</span>
+                        <span>2-4周</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>推荐经销商</span>
+                        <span>上海风傲中心</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>经销商地址</span>
+                        <span>A市B区C路4号</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>联系电话</span>
+                        <span>+1-505-842-5662</span>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background: #f9f9f9; border-radius: 8px; padding: 20px;">
+                        <h3>专属优惠</h3>
+                        <p>恭喜！您选择的配置可享受以下专属优惠：</p>
+                        <ul style="margin: 15px 0 15px 20px;">
+                            <li>3年或10万公里免费保养</li>
+                            <li>5年免费道路救援</li>
+                            <li>低息金融方案：首付30%，年利率3.99%</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>下一步建议</h3>
+                        <p>我们的销售顾问将在24小时内联系您，为您安排试驾和购车事宜。</p>
+                        <p>您也可以直接前往推荐经销商处体验实车。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 品牌介绍页面 -->
+        <div class="page" id="about-page">
+            <div class="page-title">
+                <h1>风傲品牌故事</h1>
+                <p>从织机厂到全球汽车巨头的辉煌旅程</p>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>风傲品牌故事</h2>
+                        <p>风傲汽车公司（Toyota Motor Corporation）创立于1937年，总部位于日本爱知县风傲市，是世界领先的汽车制造商之一。</p>
+                        <p>风傲以"通过汽车创造富裕社会"为理念，致力于为全球消费者提供高品质、安全可靠的汽车产品。</p>
+                        <p>作为混合动力技术的先驱，风傲于1997年推出了世界首款量产混合动力车——普锐斯，开启了汽车环保技术的新篇章。</p>
+                        <p>今天，风傲在全球170多个国家和地区开展业务，拥有超过37万名员工，年产量超过1000万辆汽车。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1619447997961-afd0f0c5c7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="风傲总部">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-title">
+                    <h2>风傲发展历程</h2>
+                    <p>创新与品质的持续追求</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1937年</span>
+                            <h3>风傲汽车成立</h3>
+                            <p>风傲喜一郎创立风傲汽车工业株式会社，开始生产汽车</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1966年</span>
+                            <h3>推出卡罗拉</h3>
+                            <p>第一代卡罗拉问世，成为全球最畅销的汽车系列</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1989年</span>
+                            <h3>豪华品牌雷克萨斯诞生</h3>
+                            <p>风傲在美国市场推出豪华汽车品牌雷克萨斯</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1997年</span>
+                            <h3>普锐斯问世</h3>
+                            <p>全球首款量产混合动力汽车普锐斯上市</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">2020年</span>
+                            <h3>迈向电动化</h3>
+                            <p>发布纯电动SUV bZ4X，开启风傲电动化新篇章</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section" style="margin-top: 50px;">
+                <h2 style="text-align: center; margin-bottom: 30px;">风傲的核心价值</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-leaf" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>环保创新</h3>
+                        <p>致力于开发环保技术，减少碳排放，创造可持续的移动社会</p>
+                    </div>
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>安全至上</h3>
+                        <p>开发先进安全技术，保护每一位道路使用者的安全</p>
+                    </div>
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-cogs" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>精益制造</h3>
+                        <p>通过风傲生产方式，实现高品质、高效率的生产</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>风傲汽车</h3>
+                <p>风傲致力于为全球消费者提供高品质、安全可靠的汽车产品，创造更加美好的移动社会。</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>热门车型</h3>
+                <ul class="footer-links">
+                    <li><a href="#">凯美瑞</a></li>
+                    <li><a href="#">卡罗拉</a></li>
+                    <li><a href="#">RAV4荣放</a></li>
+                    <li><a href="#">汉兰达</a></li>
+                    <li><a href="#">普锐斯</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>车主服务</h3>
+                <ul class="footer-links">
+                    <li><a href="#">预约保养</a></li>
+                    <li><a href="#">道路救援</a></li>
+                    <li><a href="#">零件查询</a></li>
+                    <li><a href="#">车主手册</a></li>
+                    <li><a href="#">软件更新</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>联系我们</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> A市B区C路4号</li>
+                    <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
+                    <li><i class="fas fa-envelope"></i> abc@111.com.cn</li>
+                    <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 风傲汽车公司 版权所有 | 沪ICP备12345678号</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 页面导航功能
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetPage = this.getAttribute('data-page');
+                showPage(targetPage);
+                
+                // 更新导航激活状态
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // 显示指定页面
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(`${pageId}-page`).classList.add('active');
+        }
+        
+        // 返回上一页
+        function goBack(targetPage) {
+            showPage(targetPage);
+        }
+        
+        // 车辆类型选择
+        function selectType(type) {
+            // showPage('model');
+            window.location.href = "models_sedan.html";
+        }
+        
+        // 车型选择
+        function selectModel(model) {
+            showPage('config');
+        }
+        
+        // 配置选项选择
+        function selectOption(element, category, option) {
+            // 移除同组其他选项的选择状态
+            const group = element.parentElement;
+            group.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // 添加当前选项的选择状态
+            element.classList.add('selected');
+            
+            // 这里可以添加更新配置预览和价格的逻辑
+        }
+        
+        // 显示配置预览页面
+        function showPreview() {
+            showPage('preview');
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 默认显示首页
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
