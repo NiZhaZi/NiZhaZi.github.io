@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲汽车</title>
+    <title>FORAL | 风傲 选择您的轿车</title>
     <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -748,7 +748,80 @@
         .back-btn i {
             margin-right: 8px;
         }
+
     </style>
+        
+    <style>
+
+        /* .model-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .model-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        } */
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .image-container .default-img {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .image-container .hover-img {
+            opacity: 0;
+            transform: scale(1.05);
+        }
+
+        .image-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+            height: 200px;
+            position: relative;
+        }
+        
+        .image-card:hover {
+            /* transform: translateY(-10px) scale(1.02); */
+        }
+
+        .image-card:hover .default-img {
+            opacity: 0;
+            transform: scale(1.05);
+        }
+        
+        .image-card:hover .hover-img {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .model-image .hover-img {
+            clip-path: circle(75%);
+        }
+
+    </style>
+
 </head>
 <body>
     <!-- 导航栏 -->
@@ -763,8 +836,8 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="home">首页</a></li>
+                <li><a href="#" class="nav-link active" data-page="about">品牌介绍</a></li>
                 <li><a href="#">最新资讯</a></li>
                 <li><a href="#">经销商查询</a></li>
             </ul>
@@ -775,423 +848,100 @@
             </div>
         </div>
     </header>
-
-    <div class="main-Photo" style="position: relative;">
-        <img src="images/mainPhoto.png" alt="main Photo" style="width: 100%; margin: 0 auto; ">
-        <!-- <input type="button" style="position: absolute; left: 10px; top: 10px;"> -->
-        <img src="svg/foral_logo.svg" alt="foral logo" 
-            style="width: 10%; position: absolute; left: 50%; top: 15%; transform: translateX(-50%) translateY(-50%); "
-        >
-    </div>
-
-    <!-- 主内容区 - 首页 -->
-    <div class="main-container">
-        <div class="page active" id="home-page">
-            <div class="page-title">
-                <h1>探索风傲世界</h1>
-                <p>从高效能的混合动力系统到令人兴奋的极致驾驶体验，风傲汽车为您提供多样化选择</p>
-            </div>
-            
-            <!-- 车辆类型选择 -->
-            <section id="vehicle-types">
-                <h2 style="margin-bottom: 30px; color: var(--secondary);">选择您的车辆类型</h2>
-                <div class="vehicle-types">
-                    <div class="type-card" onclick="selectType('sedan')">
-                        <!-- <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="轿车"> -->
-                        <img src="images/Sedan.png" alt="轿车">
-                        <div class="type-content">
-                            <h3>轿车</h3>
-                            <p>优雅设计，舒适驾乘，城市通勤的理想选择</p>
-                            <div class="btn btn-primary">选择此类型</div>
-                        </div>
-                    </div>
-                    
-                    <div class="type-card" onclick="selectType('suv')">
-                        <!-- <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="SUV"> -->
-                         <img src="images/SUV.png" alt="SUV">
-                        <div class="type-content">
-                            <h3>SUV</h3>
-                            <p>多功能空间，强大性能，适应各种路况</p>
-                            <div class="btn btn-primary">选择此类型</div>
-                        </div>
-                    </div>
-                    
-                    <div class="type-card" onclick="selectType('sportcar')">
-                        <!-- <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="跑车"> -->
-                        <img src="images/SportCar.png" alt="跑车">
-                        <div class="type-content">
-                            <h3>跑车</h3>
-                            <p>澎湃动力，精准操控，释放驾驶激情</p>
-                            <div class="btn btn-primary">选择此类型</div>
-                        </div>
-                    </div>
-                    
-                    <div class="type-card" onclick="selectType('mpv')">
-                        <!-- <img src="https://images.unsplash.com/photo-1621330396177-9d07e9a9d7b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="MPV"> -->
-                        <img src="images/MPV.png" alt="MPV">
-                        <div class="type-content">
-                            <h3>MPV</h3>
-                            <p>宽敞空间，灵活布局，家庭出行的完美伙伴</p>
-                            <div class="btn btn-primary">选择此类型</div>
-                        </div>
-                    </div>
-
-                    <div class="type-card" onclick="selectType('newenergy')">
-                        <img src="images/NewEnergy.png" alt="新能源">
-                        <div class="type-content">
-                            <h3>新能源</h3>
-                            <p>绿色出行，环保先锋</p>
-                            <div class="btn btn-primary">选择此类型</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
         
-        <!-- 车型选择页面 -->
-        <div class="page" id="model-page">
-            <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回车辆类型</a>
+        <!-- 品牌介绍页面 -->
+        <div class="page active" id="about-page">
             <div class="page-title">
-                <h1>选择您的车型</h1>
-                <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
+                <h1>风傲品牌故事</h1>
+                <p>从织机厂到全球汽车巨头的辉煌旅程</p>
             </div>
             
-            <div class="model-selection">
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="凯美瑞">
+            <div class="about-section">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>风傲品牌故事</h2>
+                        <p>风傲汽车公司（Foral Motor Corporation）创立于1937年，总部位于莱姆利尔联邦共和国联邦首都省联邦城，是世界领先的汽车制造商之一。</p>
+                        <p>风傲以"通过汽车创造富裕社会"为理念，致力于为全球消费者提供高品质、安全可靠的汽车产品。</p>
+                        <p>作为混合动力技术的先驱之一，风傲于1997年推出了世界首款量产混合动力车——B-Hybrid，开启了汽车环保技术的新篇章。</p>
+                        <p>今天，风傲在全球170多个国家和地区开展业务，拥有超过37万名员工，年产量超过1000万辆汽车。</p>
                     </div>
-                    <div class="model-info">
-                        <h3>凯美瑞</h3>
-                        <div class="model-price">¥189,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">豪华内饰</span>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1619447997961-afd0f0c5c7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="风傲总部">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-title">
+                    <h2>风傲发展历程</h2>
+                    <p>创新与品质的持续追求</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1937年</span>
+                            <h3>风傲汽车成立</h3>
+                            <p>卡梅茨沃尔先生创立风傲汽车工业株式会社，开始生产汽车</p>
                         </div>
-                        <p>旗舰级轿车，融合先进技术与豪华舒适</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('凯美瑞')">选择此车型</button>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1966年</span>
+                            <h3>推出库纳</h3>
+                            <p>第一代库纳问世，成为全球最畅销的汽车系列</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1989年</span>
+                            <h3>豪华品牌谛娜西斯诞生</h3>
+                            <p>风傲在美国市场推出豪华汽车品牌谛娜西斯</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1997年</span>
+                            <h3>B-Hybrid问世</h3>
+                            <p>全球首款量产混合动力汽车B-Hybrid上市</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">2020年</span>
+                            <h3>迈向电动化</h3>
+                            <p>发布纯电动SUV X2Z，开启风傲电动化新篇章</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="卡罗拉">
+            </div>
+            
+            <div class="about-section" style="margin-top: 50px;">
+                <h2 style="text-align: center; margin-bottom: 30px;">风傲的核心价值</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-leaf" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>环保创新</h3>
+                        <p>致力于开发环保技术，减少碳排放，创造可持续的移动社会</p>
                     </div>
-                    <div class="model-info">
-                        <h3>卡罗拉</h3>
-                        <div class="model-price">¥129,800起</div>
-                        <div class="model-features">
-                            <span class="feature">经济省油</span>
-                            <span class="feature">可靠耐用</span>
-                            <span class="feature">智能互联</span>
-                        </div>
-                        <p>全球最畅销轿车，品质与价值的完美结合</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('卡罗拉')">选择此车型</button>
-                        </div>
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>安全至上</h3>
+                        <p>开发先进安全技术，保护每一位道路使用者的安全</p>
                     </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="RAV4荣放">
-                    </div>
-                    <div class="model-info">
-                        <h3>RAV4荣放</h3>
-                        <div class="model-price">¥179,800起</div>
-                        <div class="model-features">
-                            <span class="feature">四轮驱动</span>
-                            <span class="feature">宽敞空间</span>
-                            <span class="feature">越野性能</span>
-                        </div>
-                        <p>城市SUV标杆，兼具时尚与多功能性</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('RAV4荣放')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="普锐斯">
-                    </div>
-                    <div class="model-info">
-                        <h3>普锐斯</h3>
-                        <div class="model-price">¥229,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">超低油耗</span>
-                            <span class="feature">环保先锋</span>
-                        </div>
-                        <p>全球首款量产混合动力车，引领环保潮流</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('普锐斯')">选择此车型</button>
-                        </div>
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-cogs" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>精益制造</h3>
+                        <p>通过风傲生产方式，实现高品质、高效率的生产</p>
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- 配置选装页面 -->
-        <div class="page" id="config-page">
-            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回车型选择</a>
-            <div class="page-title">
-                <h1>定制您的爱车</h1>
-                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
-            </div>
-            
-            <div class="config-container">
-                <div class="config-options">
-                    <div class="option-group">
-                        <h3>外观颜色</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白')">
-                                <h4>珍珠白</h4>
-                                <p>优雅经典，适合各种场合</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰')">
-                                <h4>金属灰</h4>
-                                <p>现代感十足，彰显个性</p>
-                                <div class="option-price">+¥2,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红')">
-                                <h4>烈焰红</h4>
-                                <p>热情奔放，路上焦点</p>
-                                <div class="option-price">+¥3,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>内饰风格</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革')">
-                                <h4>黑色皮革</h4>
-                                <p>经典稳重，易于打理</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮')">
-                                <h4>米色真皮</h4>
-                                <p>温馨舒适，提升豪华感</p>
-                                <div class="option-price">+¥5,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑')">
-                                <h4>运动红黑</h4>
-                                <p>激情动感，驾驶乐趣</p>
-                                <div class="option-price">+¥4,500</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>科技选装包</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版')">
-                                <h4>基础版</h4>
-                                <p>标配科技功能</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包')">
-                                <h4>智能安全包</h4>
-                                <p>包含自适应巡航、盲点监测等</p>
-                                <div class="option-price">+¥12,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包')">
-                                <h4>豪华科技包</h4>
-                                <p>包含HUD、360影像、高级音响</p>
-                                <div class="option-price">+¥25,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>轮毂选择</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂')">
-                                <h4>17英寸合金轮毂</h4>
-                                <p>标准配置</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂')">
-                                <h4>18英寸运动轮毂</h4>
-                                <p>增强操控性和外观</p>
-                                <div class="option-price">+¥8,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂')">
-                                <h4>19英寸豪华轮毂</h4>
-                                <p>豪华大气，提升整体质感</p>
-                                <div class="option-price">+¥15,000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="config-preview">
-                    <h3>您的配置预览</h3>
-                    <div class="preview-image">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="车辆预览">
-                    </div>
-                    
-                    <div class="price-summary">
-                        <h4>价格明细</h4>
-                        <div class="price-item">
-                            <span>基础车型</span>
-                            <span>¥189,800</span>
-                        </div>
-                        <div class="price-item">
-                            <span>珍珠白</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span>黑色皮革内饰</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span>基础科技包</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span>17英寸合金轮毂</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-total">
-                            <span>总计</span>
-                            <span>¥189,800</span>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 价格预览页面 -->
-        <div class="page" id="preview-page">
-            <a href="#" class="back-btn" onclick="goBack('config-page')"><i class="fas fa-arrow-left"></i> 返回配置选择</a>
-            <div class="page-title">
-                <h1>您的风傲配置</h1>
-                <p>查看您精心选择的配置和最终价格</p>
-            </div>
-            
-            <div class="preview-container">
-                <div class="preview-details">
-                    <div class="preview-image-large">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="车辆预览">
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h3>车辆信息</h3>
-                        <div class="detail-item">
-                            <span>车型</span>
-                            <span>凯美瑞 2.5L 豪华版</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>外观颜色</span>
-                            <span>珍珠白</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>内饰风格</span>
-                            <span>黑色皮革</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>轮毂</span>
-                            <span>17英寸合金轮毂</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h3>选装配置</h3>
-                        <div class="detail-item">
-                            <span>科技包</span>
-                            <span>基础版</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>附加配置</span>
-                            <span>无</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h3>价格明细</h3>
-                        <div class="detail-item">
-                            <span>基础车型价格</span>
-                            <span>¥189,800</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>选装配置</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>购置税</span>
-                            <span>¥16,800</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>保险</span>
-                            <span>¥8,500</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>上牌费</span>
-                            <span>¥1,000</span>
-                        </div>
-                        <div class="price-total">
-                            <span>总计</span>
-                            <span>¥216,100</span>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('config-page')">修改配置</button>
-                        <button class="btn btn-primary" style="flex: 1;">预约试驾</button>
-                        <button class="btn btn-primary" style="flex: 1;">立即订购</button>
-                    </div>
-                </div>
-                
-                <div class="preview-details">
-                    <h3>交付信息</h3>
-                    <div class="detail-item">
-                        <span>预计交付时间</span>
-                        <span>2-4周</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>推荐经销商</span>
-                        <span>上海风傲中心</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>经销商地址</span>
-                        <span>A市B区C路4号</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>联系电话</span>
-                        <span>+1-505-842-5662</span>
-                    </div>
-                    
-                    <div style="margin-top: 30px; background: #f9f9f9; border-radius: 8px; padding: 20px;">
-                        <h3>专属优惠</h3>
-                        <p>恭喜！您选择的配置可享受以下专属优惠：</p>
-                        <ul style="margin: 15px 0 15px 20px;">
-                            <li>3年或10万公里免费保养</li>
-                            <li>5年免费道路救援</li>
-                            <li>低息金融方案：首付30%，年利率3.99%</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-top: 30px;">
-                        <h3>下一步建议</h3>
-                        <p>我们的销售顾问将在24小时内联系您，为您安排试驾和购车事宜。</p>
-                        <p>您也可以直接前往推荐经销商处体验实车。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <!-- 页脚 -->
     <footer>
@@ -1210,11 +960,11 @@
             <div class="footer-column">
                 <h3>热门车型</h3>
                 <ul class="footer-links">
-                    <li><a href="#">凯美瑞</a></li>
-                    <li><a href="#">卡罗拉</a></li>
-                    <li><a href="#">RAV4荣放</a></li>
-                    <li><a href="#">汉兰达</a></li>
-                    <li><a href="#">普锐斯</a></li>
+                    <li><a href="#">KUNA</a></li>
+                    <li><a href="#">X2B</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
                 </ul>
             </div>
             
@@ -1232,7 +982,7 @@
             <div class="footer-column">
                 <h3>联系我们</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号 </li>
                     <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
                     <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
                     <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
@@ -1277,19 +1027,19 @@
         
         // 返回上一页
         function goBack(targetPage) {
-            showPage(targetPage);
+            // showPage(targetPage);
+            window.location.href = "index.html";
         }
         
         // 车辆类型选择
         function selectType(type) {
-            // showPage('model');
-            window.location.href = "models_sedan.html";
-            window.location.href = "models_" + type + ".html";
+            showPage('model');
         }
         
         // 车型选择
         function selectModel(model) {
-            showPage('config');
+            // showPage('config');
+            window.location.href = model + "/" + model + ".html";
         }
         
         // 配置选项选择
@@ -1315,6 +1065,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
             // showPage('home');
+            // window.location.href = "index.html";
         });
     </script>
 </body>
