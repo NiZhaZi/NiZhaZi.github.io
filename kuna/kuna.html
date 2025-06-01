@@ -775,12 +775,18 @@
             </div>
         </div>
     </header>
+
+        <script>
+            var valueBasic = 89800;
+            var value = new Array();
+            // var category = new Array();
+        </script>
         
         <!-- 配置选装页面 -->
         <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
             <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
-                <h1>定制您的爱车</h1>
+                <h1>定制您的KUNA</h1>
                 <p>选择配置和选装件，打造专属于您的风傲座驾</p>
             </div>
             
@@ -789,17 +795,17 @@
                     <div class="option-group">
                         <h3>外观颜色</h3>
                         <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白')">
+                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白'); result(1, 0)">
                                 <h4>珍珠白</h4>
                                 <p>优雅经典，适合各种场合</p>
                                 <div class="option-price">+¥0</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰')">
+                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰'); result(1, 2000)">
                                 <h4>金属灰</h4>
                                 <p>现代感十足，彰显个性</p>
                                 <div class="option-price">+¥2,000</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红')">
+                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红'); result(1, 3000)">
                                 <h4>烈焰红</h4>
                                 <p>热情奔放，路上焦点</p>
                                 <div class="option-price">+¥3,000</div>
@@ -810,17 +816,17 @@
                     <div class="option-group">
                         <h3>内饰风格</h3>
                         <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革')">
+                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革'); result(2, 0)">
                                 <h4>黑色皮革</h4>
                                 <p>经典稳重，易于打理</p>
                                 <div class="option-price">+¥0</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮')">
+                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮'); result(2, 5000)">
                                 <h4>米色真皮</h4>
                                 <p>温馨舒适，提升豪华感</p>
                                 <div class="option-price">+¥5,000</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑')">
+                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑'); result(2, 4500)">
                                 <h4>运动红黑</h4>
                                 <p>激情动感，驾驶乐趣</p>
                                 <div class="option-price">+¥4,500</div>
@@ -831,17 +837,17 @@
                     <div class="option-group">
                         <h3>科技选装包</h3>
                         <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版')">
+                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版'); result(3, 0)">
                                 <h4>基础版</h4>
                                 <p>标配科技功能</p>
                                 <div class="option-price">+¥0</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包')">
+                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包'); result(3, 12000)">
                                 <h4>智能安全包</h4>
                                 <p>包含自适应巡航、盲点监测等</p>
                                 <div class="option-price">+¥12,000</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包')">
+                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包'); result(3, 25000)">
                                 <h4>豪华科技包</h4>
                                 <p>包含HUD、360影像、高级音响</p>
                                 <div class="option-price">+¥25,000</div>
@@ -852,17 +858,17 @@
                     <div class="option-group">
                         <h3>轮毂选择</h3>
                         <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂')">
+                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂'); result(4, 0)">
                                 <h4>17英寸合金轮毂</h4>
                                 <p>标准配置</p>
                                 <div class="option-price">+¥0</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂')">
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂'); result(4, 8000)">
                                 <h4>18英寸运动轮毂</h4>
                                 <p>增强操控性和外观</p>
                                 <div class="option-price">+¥8,000</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂')">
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂'); result(4, 15000)">
                                 <h4>19英寸豪华轮毂</h4>
                                 <p>豪华大气，提升整体质感</p>
                                 <div class="option-price">+¥15,000</div>
@@ -881,27 +887,40 @@
                         <h4>价格明细</h4>
                         <div class="price-item">
                             <span>基础车型</span>
-                            <span>¥189,800</span>
+                            <span id = "valueBasic">¥89,800</span>
                         </div>
                         <div class="price-item">
-                            <span>珍珠白</span>
-                            <span>¥0</span>
+                            <span id = "color">珍珠白</span>
+                            <span id = "value1">¥0</span>
                         </div>
                         <div class="price-item">
-                            <span>黑色皮革内饰</span>
-                            <span>¥0</span>
+                            <span id = "interior">黑色皮革内饰</span>
+                            <span id = "value2">¥0</span>
                         </div>
                         <div class="price-item">
-                            <span>基础科技包</span>
-                            <span>¥0</span>
+                            <span id = "tech">基础科技包</span>
+                            <span id = "value3">¥0</span>
                         </div>
                         <div class="price-item">
-                            <span>17英寸合金轮毂</span>
-                            <span>¥0</span>
+                            <span id = "wheels">17英寸合金轮毂</span>
+                            <span id = "value4">¥0</span>
                         </div>
                         <div class="price-total">
                             <span>总计</span>
-                            <span>¥189,800</span>
+                            <script>
+                                function result(num, _value){
+                                    value[num] = _value;
+                                    var result = valueBasic;
+                                    for(var i = 1; i <= value.length; i++){
+                                        if (value[i] != null) {
+                                            result += value[i];
+                                            document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
+                                        }
+                                    }
+                                    document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
+                                }
+                            </script>
+                            <span id = "result">¥89,800</span>
                         </div>
                     </div>
                     
@@ -1012,7 +1031,7 @@
             
             // 添加当前选项的选择状态
             element.classList.add('selected');
-            
+            document.getElementById(category).innerHTML = option;
             // 这里可以添加更新配置预览和价格的逻辑
         }
         
