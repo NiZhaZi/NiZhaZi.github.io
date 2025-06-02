@@ -763,7 +763,7 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
+                <li><a href="#" class="nav-link active" data-page="index">首页</a></li>
                 <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
                 <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
                 <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
@@ -776,25 +776,9 @@
         </div>
     </header>
 
-    <style>
-        img-container {
-            display: flex;
-            animation: slide 10s infinite;
-        }
-
-        @keyframes slide {
-            0%, 33% {transform: translateX(0);}
-            34%, 66% {transform: translateX(-1200px);}
-            67%, 100% {transform: translateX(-2400px);}
-        }
-    </style>
-
     <div class="main-Photo" style="position: relative;">
         <div class="img-container">
             <img src="images/mainPhoto1.png" alt="main Photo 1" style="width: 100%; margin: 0 auto; ">
-            <!-- <img src="images/mainPhoto2.png" alt="main Photo 2" style="width: 100%; margin: 0 auto; ">
-            <img src="images/mainPhoto3.png" alt="main Photo 3" style="width: 100%; margin: 0 auto; "> -->
-            <!-- <input type="button" style="position: absolute; left: 10px; top: 10px;"> -->
             <img src="svg/foral_logo.svg" alt="foral logo" 
                 style="width: 10%; position: absolute; left: 50%; top: 15%; transform: translateX(-50%) translateY(-50%); "
             >
@@ -814,7 +798,6 @@
                 <h2 style="margin-bottom: 30px; color: var(--secondary);">选择您的车辆类型</h2>
                 <div class="vehicle-types">
                     <div class="type-card" onclick="selectType('sedan')">
-                        <!-- <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="轿车"> -->
                         <img src="images/Sedan.png" alt="轿车">
                         <div class="type-content">
                             <h3>轿车</h3>
@@ -824,7 +807,6 @@
                     </div>
                     
                     <div class="type-card" onclick="selectType('suv')">
-                        <!-- <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="SUV"> -->
                          <img src="images/SUV.png" alt="SUV">
                         <div class="type-content">
                             <h3>SUV</h3>
@@ -834,7 +816,6 @@
                     </div>
                     
                     <div class="type-card" onclick="selectType('sportcar')">
-                        <!-- <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="跑车"> -->
                         <img src="images/SportCar.png" alt="跑车">
                         <div class="type-content">
                             <h3>跑车</h3>
@@ -844,7 +825,6 @@
                     </div>
                     
                     <div class="type-card" onclick="selectType('mpv')">
-                        <!-- <img src="https://images.unsplash.com/photo-1621330396177-9d07e9a9d7b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="MPV"> -->
                         <img src="images/MPV.png" alt="MPV">
                         <div class="type-content">
                             <h3>MPV</h3>
@@ -884,11 +864,11 @@
             <div class="footer-column">
                 <h3>热门车型</h3>
                 <ul class="footer-links">
-                    <li><a href="#">凯美瑞</a></li>
-                    <li><a href="#">卡罗拉</a></li>
-                    <li><a href="#">RAV4荣放</a></li>
-                    <li><a href="#">汉兰达</a></li>
-                    <li><a href="#">普锐斯</a></li>
+                    <li><a href="#">KUNA</a></li>
+                    <li><a href="#">X2B</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
                 </ul>
             </div>
             
@@ -941,12 +921,7 @@
                 page.classList.remove('active');
             });
             // document.getElementById(`${pageId}-page`).classList.add('active');
-            if (pageId == "home"){
-                window.location.href = "index.html";
-            }
-            else{
-                window.location.href = pageId + ".html"
-            }
+            window.location.href = pageId + ".html"
         }
         
         // 返回上一页
@@ -956,8 +931,6 @@
         
         // 车辆类型选择
         function selectType(type) {
-            // showPage('model');
-            // window.location.href = "models_sedan.html";
             window.location.href = "models_" + type + ".html";
         }
         
@@ -988,7 +961,6 @@
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
-            // showPage('home');
         });
     </script>
 </body>
