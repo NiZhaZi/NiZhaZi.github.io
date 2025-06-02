@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲 选择您的轿车</title>
-    <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
+    <title>FORAL | 风傲 广汽风傲 KUNA</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -748,80 +748,7 @@
         .back-btn i {
             margin-right: 8px;
         }
-
     </style>
-        
-    <style>
-
-        /* .model-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .model-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        } */
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-        
-        .image-container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .image-container .default-img {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .image-container .hover-img {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-
-        .image-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
-            height: 200px;
-            position: relative;
-        }
-        
-        .image-card:hover {
-            /* transform: translateY(-10px) scale(1.02); */
-        }
-
-        .image-card:hover .default-img {
-            opacity: 0;
-            transform: scale(1.05);
-        }
-        
-        .image-card:hover .hover-img {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .model-image .hover-img {
-            clip-path: circle(75%);
-        }
-
-    </style>
-
 </head>
 <body>
     <!-- 导航栏 -->
@@ -848,64 +775,9 @@
             </div>
         </div>
     </header>
-        
-        <!-- 车型选择页面 -->
-        <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回</a>
-            <div class="page-title">
-                <h1>选择您的车型</h1>
-                <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
-            </div>
+
+        <div>
             
-            <div class="model-selection">
-
-                <div class="model-card">
-                    <div class="image-card model-image">
-                        <div class="image-container">
-                         <img src="images/foral_kuna/S.png" alt="kunaS" class="default-img">
-                         <img src="images/foral_kuna/F.png" alt="kunaF" class="hover-img">
-                        </div>
-                    </div>
-                    <div class="model-info">
-                        <h3>广汽风傲KUNA</h3>
-                        <div class="model-price">¥89,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">环保内饰</span>
-                        </div>
-                        <p>入门级轿车，以入门级的价格享受旗舰级的科技</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline" onclick="aboutModel('kuna')">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('kuna')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="image-card model-image">
-                        <div class="image-container">
-                         <img src="images/foral_x2b/F.png" alt="x2bF" class="default-img">
-                         <img src="images/foral_x2b/R.png" alt="x2bR" class="hover-img">
-                        </div>
-                    </div>
-                    <div class="model-info">
-                        <h3>风傲汽车X2B</h3>
-                        <div class="model-price">¥189,800起</div>
-                        <div class="model-features">
-                            <span class="feature">纯电动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">豪华内饰</span>
-                        </div>
-                        <p>中级纯电轿车，融合先进技术与豪华舒适</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('x2b')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     
     <!-- 页脚 -->
@@ -947,7 +819,7 @@
             <div class="footer-column">
                 <h3>联系我们</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号 </li>
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
                     <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
                     <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
                     <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
@@ -983,17 +855,17 @@
             });
             // document.getElementById(`${pageId}-page`).classList.add('active');
             if (pageId == "home"){
-                window.location.href = "index.html";
+                window.location.href = "../index.html";
             }
             else if (pageId == "about"){
-                window.location.href = "introduction.html";
+                window.location.href = "../introduction.html";
             }
         }
         
         // 返回上一页
         function goBack(targetPage) {
             // showPage(targetPage);
-            window.location.href = "index.html";
+            window.location.href = "../models_sedan.html";
         }
         
         // 车辆类型选择
@@ -1003,39 +875,60 @@
         
         // 车型选择
         function selectModel(model) {
-            // showPage('config');
-            window.location.href = model + "/" + model + ".html";
-        }
-
-        function aboutModel(model) {
-            // showPage('config');
-            window.location.href = model + "/" + "about.html";
+            showPage('config');
         }
         
         // 配置选项选择
-        function selectOption(element, category, option) {
+        var catas = new Array()
+        function selectOption(element, category, option, ord, val) {
             // 移除同组其他选项的选择状态
             const group = element.parentElement;
             group.querySelectorAll('.option-card').forEach(card => {
                 card.classList.remove('selected');
             });
+
+            var judge = true;
+            for (var i = 0; i < catas.length; i++){
+                if (catas[i] == category) {
+                    judge = false;
+                    break;
+                }
+            }
+            if (judge){
+                catas.push(category);
+            }
             
             // 添加当前选项的选择状态
             element.classList.add('selected');
-            
+            document.getElementById(category).innerHTML = option;
             // 这里可以添加更新配置预览和价格的逻辑
+            value[ord] = val;
+            var result = valueBasic;
+            for(var i = 1; i <= value.length; i++){
+                if (value[i] != null) {
+                    result += value[i];
+                    document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
+                }
+            }
+            document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
+            localStorage.setItem(category, option);
+            localStorage.setItem("valueBasic", valueBasic);
+            localStorage.setItem("valueTotal", result);
         }
         
         // 显示配置预览页面
         function showPreview() {
-            showPage('preview');
+            // showPage('preview');
+            localStorage.setItem('category', catas);
+            window.location.href = "result.html";
         }
         
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
             // showPage('home');
-            // window.location.href = "index.html";
+            // window.location.href = "../index.html";
+            result();
         });
     </script>
 </body>
