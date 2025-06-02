@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲 广汽风傲 KUNA</title>
-    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
+    <title>FORAL | 风傲 选择您的轿车</title>
+    <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -748,7 +748,80 @@
         .back-btn i {
             margin-right: 8px;
         }
+
     </style>
+        
+    <style>
+
+        /* .model-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .model-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        } */
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .image-container .default-img {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .image-container .hover-img {
+            opacity: 0;
+            transform: scale(1.05);
+        }
+
+        .image-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s ease;
+            height: 200px;
+            position: relative;
+        }
+        
+        .image-card:hover {
+            /* transform: translateY(-10px) scale(1.02); */
+        }
+
+        .image-card:hover .default-img {
+            opacity: 0;
+            transform: scale(1.05);
+        }
+        
+        .image-card:hover .hover-img {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .model-image .hover-img {
+            clip-path: circle(75%);
+        }
+
+    </style>
+
 </head>
 <body>
     <!-- 导航栏 -->
@@ -764,7 +837,7 @@
             
             <ul class="nav-links">
                 <li><a href="#" class="nav-link" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
+                <li><a href="#" class="nav-link active" data-page="about">品牌介绍</a></li>
                 <li><a href="#">最新资讯</a></li>
                 <li><a href="#">经销商查询</a></li>
             </ul>
@@ -775,159 +848,100 @@
             </div>
         </div>
     </header>
-
-        <script>
-            var valueBasic = 89800;
-            var value = new Array();
-            // var category = new Array();
-        </script>
         
-        <!-- 配置选装页面 -->
-        <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
+        <!-- 品牌介绍页面 -->
+        <div class="page active" id="about-page">
             <div class="page-title">
-                <h1>定制您的KUNA</h1>
-                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
+                <h1>风傲品牌故事</h1>
+                <p>从织机厂到全球汽车巨头的辉煌旅程</p>
             </div>
             
-            <div class="config-container">
-                <div class="config-options">
-                    <div class="option-group">
-                        <h3>外观颜色</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白', 1, 0)">
-                                <h4>珍珠白</h4>
-                                <p>优雅经典，适合各种场合</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰', 1, 2000)">
-                                <h4>金属灰</h4>
-                                <p>现代感十足，彰显个性</p>
-                                <div class="option-price">+¥2,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红', 1, 3000)">
-                                <h4>烈焰红</h4>
-                                <p>热情奔放，路上焦点</p>
-                                <div class="option-price">+¥3,000</div>
-                            </div>
+            <div class="about-section">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2>风傲品牌故事</h2>
+                        <p>风傲汽车公司（Foral Motor Corporation）创立于1937年，总部位于莱姆利尔联邦共和国联邦首都省联邦城，是世界领先的汽车制造商之一。</p>
+                        <p>风傲以"通过汽车创造富裕社会"为理念，致力于为全球消费者提供高品质、安全可靠的汽车产品。</p>
+                        <p>作为混合动力技术的先驱之一，风傲于1997年推出了世界首款量产混合动力车——B-Hybrid，开启了汽车环保技术的新篇章。</p>
+                        <p>今天，风傲在全球170多个国家和地区开展业务，拥有超过37万名员工，年产量超过1000万辆汽车。</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1619447997961-afd0f0c5c7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="风傲总部">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-title">
+                    <h2>风傲发展历程</h2>
+                    <p>创新与品质的持续追求</p>
+                </div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1937年</span>
+                            <h3>风傲汽车成立</h3>
+                            <p>卡梅茨沃尔先生创立风傲汽车工业株式会社，开始生产汽车</p>
                         </div>
                     </div>
                     
-                    <div class="option-group">
-                        <h3>内饰风格</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革', 2, 0)">
-                                <h4>黑色皮革</h4>
-                                <p>经典稳重，易于打理</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮', 2, 5000)">
-                                <h4>米色真皮</h4>
-                                <p>温馨舒适，提升豪华感</p>
-                                <div class="option-price">+¥5,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑', 2, 4500)">
-                                <h4>运动红黑</h4>
-                                <p>激情动感，驾驶乐趣</p>
-                                <div class="option-price">+¥4,500</div>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1966年</span>
+                            <h3>推出库纳</h3>
+                            <p>第一代库纳问世，成为全球最畅销的汽车系列</p>
                         </div>
                     </div>
                     
-                    <div class="option-group">
-                        <h3>科技选装包</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版', 3, 0)">
-                                <h4>基础版</h4>
-                                <p>标配科技功能</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包', 3, 12000)">
-                                <h4>智能安全包</h4>
-                                <p>包含自适应巡航、盲点监测等</p>
-                                <div class="option-price">+¥12,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包', 3, 25000)">
-                                <h4>豪华科技包</h4>
-                                <p>包含HUD、360影像、高级音响</p>
-                                <div class="option-price">+¥25,000</div>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1989年</span>
+                            <h3>豪华品牌谛娜西斯诞生</h3>
+                            <p>风傲在美国市场推出豪华汽车品牌谛娜西斯</p>
                         </div>
                     </div>
                     
-                    <div class="option-group">
-                        <h3>轮毂选择</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂', 4, 0)">
-                                <h4>17英寸合金轮毂</h4>
-                                <p>标准配置</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂', 4, 8000)">
-                                <h4>18英寸运动轮毂</h4>
-                                <p>增强操控性和外观</p>
-                                <div class="option-price">+¥8,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂', 4, 15000)">
-                                <h4>19英寸豪华轮毂</h4>
-                                <p>豪华大气，提升整体质感</p>
-                                <div class="option-price">+¥15,000</div>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">1997年</span>
+                            <h3>B-Hybrid问世</h3>
+                            <p>全球首款量产混合动力汽车B-Hybrid上市</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="date">2020年</span>
+                            <h3>迈向电动化</h3>
+                            <p>发布纯电动SUV X2Z，开启风傲电动化新篇章</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="config-preview">
-                    <h3>预览</h3>
-                    <div class="preview-image">
-                        <img src="../images/foral_kuna/F.png" alt="车辆预览">
+            </div>
+            
+            <div class="about-section" style="margin-top: 50px;">
+                <h2 style="text-align: center; margin-bottom: 30px;">风傲的核心价值</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-leaf" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>环保创新</h3>
+                        <p>致力于开发环保技术，减少碳排放，创造可持续的移动社会</p>
                     </div>
-                    
-                    <div class="price-summary">
-                        <h4>价格明细</h4>
-                        <div class="price-item">
-                            <span>基础车型</span>
-                            <span id = "valueBasic">¥89,800</span>
-                        </div>
-                        <div class="price-item">
-                            <span id = "color">珍珠白</span>
-                            <span id = "value1">¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span id = "interior">黑色皮革内饰</span>
-                            <span id = "value2">¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span id = "tech">基础科技包</span>
-                            <span id = "value3">¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span id = "wheels">17英寸合金轮毂</span>
-                            <span id = "value4">¥0</span>
-                        </div>
-                        <div class="price-total">
-                            <span>总计</span>
-                            <script>
-                                function result(num, _value){
-                                    // value[num] = _value;
-                                    // var result = valueBasic;
-                                    // for(var i = 1; i <= value.length; i++){
-                                    //     if (value[i] != null) {
-                                    //         result += value[i];
-                                    //         document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
-                                    //     }
-                                    // }
-                                    // document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
-                                }
-                            </script>
-                            <span id = "result">¥89,800</span>
-                        </div>
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>安全至上</h3>
+                        <p>开发先进安全技术，保护每一位道路使用者的安全</p>
                     </div>
-                    
-                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
+                    <div style="text-align: center; padding: 30px; background: #f9f9f9; border-radius: 10px;">
+                        <i class="fas fa-cogs" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3>精益制造</h3>
+                        <p>通过风傲生产方式，实现高品质、高效率的生产</p>
+                    </div>
                 </div>
             </div>
         </div>
+        
     
     <!-- 页脚 -->
     <footer>
@@ -968,7 +982,7 @@
             <div class="footer-column">
                 <h3>联系我们</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号 </li>
                     <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
                     <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
                     <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
@@ -1004,17 +1018,17 @@
             });
             // document.getElementById(`${pageId}-page`).classList.add('active');
             if (pageId == "home"){
-                window.location.href = "../index.html";
+                window.location.href = "index.html";
             }
             else if (pageId == "about"){
-                window.location.href = "../introduction.html";
+                window.location.href = "introduction.html";
             }
         }
         
         // 返回上一页
         function goBack(targetPage) {
             // showPage(targetPage);
-            window.location.href = "../models_sedan.html";
+            window.location.href = "index.html";
         }
         
         // 车辆类型选择
@@ -1024,60 +1038,34 @@
         
         // 车型选择
         function selectModel(model) {
-            showPage('config');
+            // showPage('config');
+            window.location.href = model + "/" + model + ".html";
         }
         
         // 配置选项选择
-        var catas = new Array()
-        function selectOption(element, category, option, ord, val) {
+        function selectOption(element, category, option) {
             // 移除同组其他选项的选择状态
             const group = element.parentElement;
             group.querySelectorAll('.option-card').forEach(card => {
                 card.classList.remove('selected');
             });
-
-            var judge = true;
-            for (var i = 0; i < catas.length; i++){
-                if (catas[i] == category) {
-                    judge = false;
-                    break;
-                }
-            }
-            if (judge){
-                catas.push(category);
-            }
             
             // 添加当前选项的选择状态
             element.classList.add('selected');
-            document.getElementById(category).innerHTML = option;
+            
             // 这里可以添加更新配置预览和价格的逻辑
-            value[ord] = val;
-            var result = valueBasic;
-            for(var i = 1; i <= value.length; i++){
-                if (value[i] != null) {
-                    result += value[i];
-                    document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
-                }
-            }
-            document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
-            localStorage.setItem(category, option);
-            localStorage.setItem("valueBasic", valueBasic);
-            localStorage.setItem("valueTotal", result);
         }
         
         // 显示配置预览页面
         function showPreview() {
-            // showPage('preview');
-            localStorage.setItem('category', catas);
-            window.location.href = "result.html";
+            showPage('preview');
         }
         
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
             // showPage('home');
-            // window.location.href = "../index.html";
-            result();
+            // window.location.href = "index.html";
         });
     </script>
 </body>

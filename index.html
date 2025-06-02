@@ -764,9 +764,9 @@
             
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
-                <li><a href="#">最新资讯</a></li>
-                <li><a href="#">经销商查询</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -776,12 +776,29 @@
         </div>
     </header>
 
+    <style>
+        img-container {
+            display: flex;
+            animation: slide 10s infinite;
+        }
+
+        @keyframes slide {
+            0%, 33% {transform: translateX(0);}
+            34%, 66% {transform: translateX(-1200px);}
+            67%, 100% {transform: translateX(-2400px);}
+        }
+    </style>
+
     <div class="main-Photo" style="position: relative;">
-        <img src="images/mainPhoto.png" alt="main Photo" style="width: 100%; margin: 0 auto; ">
-        <!-- <input type="button" style="position: absolute; left: 10px; top: 10px;"> -->
-        <img src="svg/foral_logo.svg" alt="foral logo" 
-            style="width: 10%; position: absolute; left: 50%; top: 15%; transform: translateX(-50%) translateY(-50%); "
-        >
+        <div class="img-container">
+            <img src="images/mainPhoto1.png" alt="main Photo 1" style="width: 100%; margin: 0 auto; ">
+            <!-- <img src="images/mainPhoto2.png" alt="main Photo 2" style="width: 100%; margin: 0 auto; ">
+            <img src="images/mainPhoto3.png" alt="main Photo 3" style="width: 100%; margin: 0 auto; "> -->
+            <!-- <input type="button" style="position: absolute; left: 10px; top: 10px;"> -->
+            <img src="svg/foral_logo.svg" alt="foral logo" 
+                style="width: 10%; position: absolute; left: 50%; top: 15%; transform: translateX(-50%) translateY(-50%); "
+            >
+        </div>
     </div>
 
     <!-- 主内容区 - 首页 -->
@@ -848,349 +865,6 @@
             </section>
         </div>
         
-        <!-- 车型选择页面 -->
-        <div class="page" id="model-page">
-            <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回车辆类型</a>
-            <div class="page-title">
-                <h1>选择您的车型</h1>
-                <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
-            </div>
-            
-            <div class="model-selection">
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="凯美瑞">
-                    </div>
-                    <div class="model-info">
-                        <h3>凯美瑞</h3>
-                        <div class="model-price">¥189,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">豪华内饰</span>
-                        </div>
-                        <p>旗舰级轿车，融合先进技术与豪华舒适</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('凯美瑞')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="卡罗拉">
-                    </div>
-                    <div class="model-info">
-                        <h3>卡罗拉</h3>
-                        <div class="model-price">¥129,800起</div>
-                        <div class="model-features">
-                            <span class="feature">经济省油</span>
-                            <span class="feature">可靠耐用</span>
-                            <span class="feature">智能互联</span>
-                        </div>
-                        <p>全球最畅销轿车，品质与价值的完美结合</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('卡罗拉')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="RAV4荣放">
-                    </div>
-                    <div class="model-info">
-                        <h3>RAV4荣放</h3>
-                        <div class="model-price">¥179,800起</div>
-                        <div class="model-features">
-                            <span class="feature">四轮驱动</span>
-                            <span class="feature">宽敞空间</span>
-                            <span class="feature">越野性能</span>
-                        </div>
-                        <p>城市SUV标杆，兼具时尚与多功能性</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('RAV4荣放')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="model-card">
-                    <div class="model-image">
-                        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="普锐斯">
-                    </div>
-                    <div class="model-info">
-                        <h3>普锐斯</h3>
-                        <div class="model-price">¥229,800起</div>
-                        <div class="model-features">
-                            <span class="feature">混合动力</span>
-                            <span class="feature">超低油耗</span>
-                            <span class="feature">环保先锋</span>
-                        </div>
-                        <p>全球首款量产混合动力车，引领环保潮流</p>
-                        <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('普锐斯')">选择此车型</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 配置选装页面 -->
-        <div class="page" id="config-page">
-            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回车型选择</a>
-            <div class="page-title">
-                <h1>定制您的爱车</h1>
-                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
-            </div>
-            
-            <div class="config-container">
-                <div class="config-options">
-                    <div class="option-group">
-                        <h3>外观颜色</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白')">
-                                <h4>珍珠白</h4>
-                                <p>优雅经典，适合各种场合</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰')">
-                                <h4>金属灰</h4>
-                                <p>现代感十足，彰显个性</p>
-                                <div class="option-price">+¥2,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红')">
-                                <h4>烈焰红</h4>
-                                <p>热情奔放，路上焦点</p>
-                                <div class="option-price">+¥3,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>内饰风格</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革')">
-                                <h4>黑色皮革</h4>
-                                <p>经典稳重，易于打理</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮')">
-                                <h4>米色真皮</h4>
-                                <p>温馨舒适，提升豪华感</p>
-                                <div class="option-price">+¥5,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑')">
-                                <h4>运动红黑</h4>
-                                <p>激情动感，驾驶乐趣</p>
-                                <div class="option-price">+¥4,500</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>科技选装包</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版')">
-                                <h4>基础版</h4>
-                                <p>标配科技功能</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包')">
-                                <h4>智能安全包</h4>
-                                <p>包含自适应巡航、盲点监测等</p>
-                                <div class="option-price">+¥12,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包')">
-                                <h4>豪华科技包</h4>
-                                <p>包含HUD、360影像、高级音响</p>
-                                <div class="option-price">+¥25,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>轮毂选择</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂')">
-                                <h4>17英寸合金轮毂</h4>
-                                <p>标准配置</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂')">
-                                <h4>18英寸运动轮毂</h4>
-                                <p>增强操控性和外观</p>
-                                <div class="option-price">+¥8,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂')">
-                                <h4>19英寸豪华轮毂</h4>
-                                <p>豪华大气，提升整体质感</p>
-                                <div class="option-price">+¥15,000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="config-preview">
-                    <h3>您的配置预览</h3>
-                    <div class="preview-image">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="车辆预览">
-                    </div>
-                    
-                    <div class="price-summary">
-                        <h4>价格明细</h4>
-                        <div class="price-item">
-                            <span>基础车型</span>
-                            <span>¥189,800</span>
-                        </div>
-                        <div class="price-item">
-                            <span>珍珠白</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span>黑色皮革内饰</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span>基础科技包</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-item">
-                            <span>17英寸合金轮毂</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="price-total">
-                            <span>总计</span>
-                            <span>¥189,800</span>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 价格预览页面 -->
-        <div class="page" id="preview-page">
-            <a href="#" class="back-btn" onclick="goBack('config-page')"><i class="fas fa-arrow-left"></i> 返回配置选择</a>
-            <div class="page-title">
-                <h1>您的风傲配置</h1>
-                <p>查看您精心选择的配置和最终价格</p>
-            </div>
-            
-            <div class="preview-container">
-                <div class="preview-details">
-                    <div class="preview-image-large">
-                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="车辆预览">
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h3>车辆信息</h3>
-                        <div class="detail-item">
-                            <span>车型</span>
-                            <span>凯美瑞 2.5L 豪华版</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>外观颜色</span>
-                            <span>珍珠白</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>内饰风格</span>
-                            <span>黑色皮革</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>轮毂</span>
-                            <span>17英寸合金轮毂</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h3>选装配置</h3>
-                        <div class="detail-item">
-                            <span>科技包</span>
-                            <span>基础版</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>附加配置</span>
-                            <span>无</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detail-section">
-                        <h3>价格明细</h3>
-                        <div class="detail-item">
-                            <span>基础车型价格</span>
-                            <span>¥189,800</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>选装配置</span>
-                            <span>¥0</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>购置税</span>
-                            <span>¥16,800</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>保险</span>
-                            <span>¥8,500</span>
-                        </div>
-                        <div class="detail-item">
-                            <span>上牌费</span>
-                            <span>¥1,000</span>
-                        </div>
-                        <div class="price-total">
-                            <span>总计</span>
-                            <span>¥216,100</span>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('config-page')">修改配置</button>
-                        <button class="btn btn-primary" style="flex: 1;">预约试驾</button>
-                        <button class="btn btn-primary" style="flex: 1;">立即订购</button>
-                    </div>
-                </div>
-                
-                <div class="preview-details">
-                    <h3>交付信息</h3>
-                    <div class="detail-item">
-                        <span>预计交付时间</span>
-                        <span>2-4周</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>推荐经销商</span>
-                        <span>上海风傲中心</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>经销商地址</span>
-                        <span>A市B区C路4号</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>联系电话</span>
-                        <span>+1-505-842-5662</span>
-                    </div>
-                    
-                    <div style="margin-top: 30px; background: #f9f9f9; border-radius: 8px; padding: 20px;">
-                        <h3>专属优惠</h3>
-                        <p>恭喜！您选择的配置可享受以下专属优惠：</p>
-                        <ul style="margin: 15px 0 15px 20px;">
-                            <li>3年或10万公里免费保养</li>
-                            <li>5年免费道路救援</li>
-                            <li>低息金融方案：首付30%，年利率3.99%</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="margin-top: 30px;">
-                        <h3>下一步建议</h3>
-                        <p>我们的销售顾问将在24小时内联系您，为您安排试驾和购车事宜。</p>
-                        <p>您也可以直接前往推荐经销商处体验实车。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     
     <!-- 页脚 -->
@@ -1270,8 +944,8 @@
             if (pageId == "home"){
                 window.location.href = "index.html";
             }
-            else if (pageId == "about"){
-                window.location.href = "introduction.html";
+            else{
+                window.location.href = pageId + ".html"
             }
         }
         
@@ -1283,7 +957,7 @@
         // 车辆类型选择
         function selectType(type) {
             // showPage('model');
-            window.location.href = "models_sedan.html";
+            // window.location.href = "models_sedan.html";
             window.location.href = "models_" + type + ".html";
         }
         

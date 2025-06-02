@@ -775,156 +775,122 @@
             </div>
         </div>
     </header>
-
-        <script>
-            var valueBasic = 89800;
-            var value = new Array();
-            // var category = new Array();
-        </script>
         
-        <!-- 配置选装页面 -->
-        <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
+        <!-- 价格预览页面 -->
+        <div class="page active" id="preview-page" style="width: 80%; margin: 0 auto; ">
+            <a href="#" class="back-btn" onclick="goBack('config-page')"><i class="fas fa-arrow-left"></i> 返回配置选择</a>
             <div class="page-title">
-                <h1>定制您的KUNA</h1>
-                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
+                <h1>您的风傲配置</h1>
+                <p>查看您精心选择的配置和最终价格</p>
             </div>
             
-            <div class="config-container">
-                <div class="config-options">
-                    <div class="option-group">
-                        <h3>外观颜色</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白', 1, 0)">
-                                <h4>珍珠白</h4>
-                                <p>优雅经典，适合各种场合</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰', 1, 2000)">
-                                <h4>金属灰</h4>
-                                <p>现代感十足，彰显个性</p>
-                                <div class="option-price">+¥2,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红', 1, 3000)">
-                                <h4>烈焰红</h4>
-                                <p>热情奔放，路上焦点</p>
-                                <div class="option-price">+¥3,000</div>
-                            </div>
-                        </div>
+            <div class="preview-container">
+                <div class="preview-details">
+                    <div class="preview-image-large">
+                        <img src="../images/foral_kuna/F.png" style="width: 100%;" alt="车辆预览">
                     </div>
                     
-                    <div class="option-group">
-                        <h3>内饰风格</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革', 2, 0)">
-                                <h4>黑色皮革</h4>
-                                <p>经典稳重，易于打理</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮', 2, 5000)">
-                                <h4>米色真皮</h4>
-                                <p>温馨舒适，提升豪华感</p>
-                                <div class="option-price">+¥5,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑', 2, 4500)">
-                                <h4>运动红黑</h4>
-                                <p>激情动感，驾驶乐趣</p>
-                                <div class="option-price">+¥4,500</div>
-                            </div>
+                    <div class="detail-section">
+                        <h3>车辆信息</h3>
+                        <div class="detail-item">
+                            <span>车型</span>
+                            <span>广汽风傲KUNA库纳</span>
                         </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>科技选装包</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版', 3, 0)">
-                                <h4>基础版</h4>
-                                <p>标配科技功能</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包', 3, 12000)">
-                                <h4>智能安全包</h4>
-                                <p>包含自适应巡航、盲点监测等</p>
-                                <div class="option-price">+¥12,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包', 3, 25000)">
-                                <h4>豪华科技包</h4>
-                                <p>包含HUD、360影像、高级音响</p>
-                                <div class="option-price">+¥25,000</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="option-group">
-                        <h3>轮毂选择</h3>
-                        <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂', 4, 0)">
-                                <h4>17英寸合金轮毂</h4>
-                                <p>标准配置</p>
-                                <div class="option-price">+¥0</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂', 4, 8000)">
-                                <h4>18英寸运动轮毂</h4>
-                                <p>增强操控性和外观</p>
-                                <div class="option-price">+¥8,000</div>
-                            </div>
-                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂', 4, 15000)">
-                                <h4>19英寸豪华轮毂</h4>
-                                <p>豪华大气，提升整体质感</p>
-                                <div class="option-price">+¥15,000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="config-preview">
-                    <h3>预览</h3>
-                    <div class="preview-image">
-                        <img src="../images/foral_kuna/F.png" alt="车辆预览">
-                    </div>
-                    
-                    <div class="price-summary">
-                        <h4>价格明细</h4>
-                        <div class="price-item">
-                            <span>基础车型</span>
-                            <span id = "valueBasic">¥89,800</span>
-                        </div>
-                        <div class="price-item">
+                        <div class="detail-item">
+                            <span>外观颜色</span>
                             <span id = "color">珍珠白</span>
-                            <span id = "value1">¥0</span>
                         </div>
-                        <div class="price-item">
-                            <span id = "interior">黑色皮革内饰</span>
-                            <span id = "value2">¥0</span>
+                        <div class="detail-item">
+                            <span>内饰风格</span>
+                            <span id = "interior">黑色皮革</span>
                         </div>
-                        <div class="price-item">
-                            <span id = "tech">基础科技包</span>
-                            <span id = "value3">¥0</span>
-                        </div>
-                        <div class="price-item">
+                        <div class="detail-item">
+                            <span>轮毂</span>
                             <span id = "wheels">17英寸合金轮毂</span>
-                            <span id = "value4">¥0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>选装配置</h3>
+                        <div class="detail-item">
+                            <span>科技包</span>
+                            <span id = "tech">基础版</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>附加配置</span>
+                            <span>无</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>价格明细</h3>
+                        <div class="detail-item">
+                            <span>基础车型价格</span>
+                            <span id = "valueBasic">¥189,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>选装配置</span>
+                            <span id = "valueOptional">¥0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>购置税</span>
+                            <span id = "valueTaxe">¥16,800</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>保险</span>
+                            <span id = "valueInsurance">¥8,500</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>上牌费</span>
+                            <span id = "valuePlate">¥1,000</span>
                         </div>
                         <div class="price-total">
                             <span>总计</span>
-                            <script>
-                                function result(num, _value){
-                                    // value[num] = _value;
-                                    // var result = valueBasic;
-                                    // for(var i = 1; i <= value.length; i++){
-                                    //     if (value[i] != null) {
-                                    //         result += value[i];
-                                    //         document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
-                                    //     }
-                                    // }
-                                    // document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
-                                }
-                            </script>
-                            <span id = "result">¥89,800</span>
+                            <span id = "valueTotal">¥216,100</span>
                         </div>
                     </div>
                     
-                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('config-page')">修改配置</button>
+                        <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://beamng.com/game/')">预约试驾</button>
+                        <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://github.com/NiZhaZi/Beamng_Hybrid_and_EV_Mod/releases/download/Sample_Cars/ind_f2_lqm.zip')">立即订购</button>
+                    </div>
+                </div>
+                
+                <div class="preview-details">
+                    <h3>交付信息</h3>
+                    <div class="detail-item">
+                        <span>预计交付时间</span>
+                        <span>1周</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>推荐经销商</span>
+                        <span>上海浦东风傲中心</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>经销商地址</span>
+                        <span>上海市浦东新区C路4号</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>联系电话</span>
+                        <span>+1-505-842-5662</span>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background: #f9f9f9; border-radius: 8px; padding: 20px;">
+                        <h3>专属优惠</h3>
+                        <p>恭喜！您选择的配置可享受以下专属优惠：</p>
+                        <ul style="margin: 15px 0 15px 20px;">
+                            <li>3年或10万公里免费保养</li>
+                            <li>5年免费道路救援</li>
+                            <li>低息金融方案：首付30%，年利率3.99%</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>下一步建议</h3>
+                        <p>我们的销售顾问将在24小时内联系您，为您安排试驾和购车事宜。</p>
+                        <p>您也可以直接前往推荐经销商处体验实车。</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1028,48 +994,26 @@
         }
         
         // 配置选项选择
-        var catas = new Array()
-        function selectOption(element, category, option, ord, val) {
+        function selectOption(element, category, option) {
             // 移除同组其他选项的选择状态
             const group = element.parentElement;
             group.querySelectorAll('.option-card').forEach(card => {
                 card.classList.remove('selected');
             });
-
-            var judge = true;
-            for (var i = 0; i < catas.length; i++){
-                if (catas[i] == category) {
-                    judge = false;
-                    break;
-                }
-            }
-            if (judge){
-                catas.push(category);
-            }
             
             // 添加当前选项的选择状态
             element.classList.add('selected');
             document.getElementById(category).innerHTML = option;
             // 这里可以添加更新配置预览和价格的逻辑
-            value[ord] = val;
-            var result = valueBasic;
-            for(var i = 1; i <= value.length; i++){
-                if (value[i] != null) {
-                    result += value[i];
-                    document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
-                }
-            }
-            document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
-            localStorage.setItem(category, option);
-            localStorage.setItem("valueBasic", valueBasic);
-            localStorage.setItem("valueTotal", result);
         }
         
         // 显示配置预览页面
         function showPreview() {
-            // showPage('preview');
-            localStorage.setItem('category', catas);
-            window.location.href = "result.html";
+            showPage('preview');
+        }
+
+        function linkOut(web) {
+            window.location.href = web;
         }
         
         // 初始化页面
@@ -1077,7 +1021,30 @@
             // 默认显示首页
             // showPage('home');
             // window.location.href = "../index.html";
-            result();
+
+            document.getElementById('color').innerHTML = localStorage.getItem('color');
+            document.getElementById('interior').innerHTML = localStorage.getItem('interior');
+            document.getElementById('tech').innerHTML = localStorage.getItem('tech');
+            document.getElementById('wheels').innerHTML = localStorage.getItem('wheels');
+
+            var valueBasic = localStorage.getItem('valueBasic');
+            var valueToatalBT = localStorage.getItem('valueTotal');
+            var valueOptional = valueToatalBT - valueBasic;
+            var VBC = parseInt(valueBasic);
+
+            document.getElementById('valueBasic').innerHTML = "¥" + VBC.toLocaleString();
+            document.getElementById('valueOptional').innerHTML = "¥" + valueOptional.toLocaleString();
+
+            var valueTaxe = valueToatalBT * 0.08;
+            var valueInsurance = 2000;
+            var valuePlate = 500;
+            var valueToatal = valueToatalBT + valueInsurance + valuePlate;
+
+            document.getElementById('valueTaxe').innerHTML = "¥" + valueTaxe.toLocaleString();
+            document.getElementById('valueInsurance').innerHTML = "¥" + valueInsurance.toLocaleString();
+            document.getElementById('valuePlate').innerHTML = "¥" + valuePlate.toLocaleString();
+            document.getElementById('valueToatal').innerHTML = "¥" + valueToatal.toLocaleString();
+
         });
     </script>
 </body>
