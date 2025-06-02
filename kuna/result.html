@@ -853,6 +853,7 @@
                     <div style="display: flex; gap: 15px; margin-top: 30px;">
                         <button class="btn btn-outline" style="flex: 1;" onclick="goBack('config-page')">修改配置</button>
                         <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
+                        <!-- <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://beamng.com/game/')">预约试驾</button> -->
                         <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://github.com/NiZhaZi/Beamng_Hybrid_and_EV_Mod/releases/download/Sample_Cars/ind_f2_lqm.zip')">立即订购</button>
                     </div>
                 </div>
@@ -1038,12 +1039,12 @@
             var valueTaxe = valueToatalBT * 0.08;
             var valueInsurance = 2000;
             var valuePlate = 500;
-            var valueToatal = valueToatalBT + valueInsurance + valuePlate;
+            var valueToatal = parseInt(valueToatalBT) + parseInt(valueTaxe) + parseInt(valueInsurance) + parseInt(valuePlate);
 
             document.getElementById('valueTaxe').innerHTML = "¥" + valueTaxe.toLocaleString();
             document.getElementById('valueInsurance').innerHTML = "¥" + valueInsurance.toLocaleString();
             document.getElementById('valuePlate').innerHTML = "¥" + valuePlate.toLocaleString();
-            document.getElementById('valueToatal').innerHTML = "¥" + valueToatal.toLocaleString();
+            document.getElementById('valueTotal').innerHTML = "¥" + valueToatal.toLocaleString();
 
         });
     </script>
