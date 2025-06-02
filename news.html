@@ -1017,12 +1017,7 @@
                 page.classList.remove('active');
             });
             // document.getElementById(`${pageId}-page`).classList.add('active');
-            if (pageId == "home"){
-                window.location.href = "index.html";
-            }
-            else if (pageId == "about"){
-                window.location.href = "introduction.html";
-            }
+            window.location.href = pageId + ".html"
         }
         
         // 返回上一页
