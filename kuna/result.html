@@ -766,10 +766,10 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
-                <li><a href="#">最新资讯</a></li>
-                <li><a href="#">经销商查询</a></li>
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -972,13 +972,7 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            // document.getElementById(`${pageId}-page`).classList.add('active');
-            if (pageId == "home"){
-                window.location.href = "../index.html";
-            }
-            else if (pageId == "about"){
-                window.location.href = "../introduction.html";
-            }
+            window.location.href = "../" + pageId + ".html"
         }
         
         // 返回上一页

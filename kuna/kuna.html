@@ -766,10 +766,10 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
-                <li><a href="#">最新资讯</a></li>
-                <li><a href="#">经销商查询</a></li>
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -819,18 +819,18 @@
                     <div class="option-group">
                         <h3>内饰风格</h3>
                         <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革', 2, 0)">
-                                <h4>黑色皮革</h4>
+                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革内饰', 2, 0)">
+                                <h4>黑色皮革内饰</h4>
                                 <p>经典稳重，易于打理</p>
                                 <div class="option-price">+¥0</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮', 2, 5000)">
-                                <h4>米色真皮</h4>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮内饰', 2, 5000)">
+                                <h4>米色真皮内饰</h4>
                                 <p>温馨舒适，提升豪华感</p>
                                 <div class="option-price">+¥5,000</div>
                             </div>
-                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑', 2, 4500)">
-                                <h4>运动红黑</h4>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑内饰', 2, 4500)">
+                                <h4>运动红黑内饰</h4>
                                 <p>激情动感，驾驶乐趣</p>
                                 <div class="option-price">+¥4,500</div>
                             </div>
@@ -840,8 +840,8 @@
                     <div class="option-group">
                         <h3>科技选装包</h3>
                         <div class="options">
-                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础版', 3, 0)">
-                                <h4>基础版</h4>
+                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础科技包', 3, 0)">
+                                <h4>基础科技包</h4>
                                 <p>标配科技功能</p>
                                 <div class="option-price">+¥0</div>
                             </div>
@@ -1005,13 +1005,7 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            // document.getElementById(`${pageId}-page`).classList.add('active');
-            if (pageId == "home"){
-                window.location.href = "../index.html";
-            }
-            else if (pageId == "about"){
-                window.location.href = "../introduction.html";
-            }
+            window.location.href = "../" + pageId + ".html"
         }
         
         // 返回上一页

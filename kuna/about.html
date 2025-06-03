@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲 广汽风傲 KUNA</title>
+    <title>风傲KUNA | 风傲汽车</title>
     <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* 原有样式保持不变 */
         * {
             margin: 0;
             padding: 0;
@@ -709,6 +710,19 @@
             .preview-container {
                 grid-template-columns: 1fr;
             }
+            
+            /* 轮播图响应式 */
+            .model-hero-slide h2 {
+                font-size: 2rem;
+            }
+            
+            .model-hero-slide p {
+                font-size: 1rem;
+            }
+            
+            .carousel-nav {
+                bottom: 10px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -717,6 +731,18 @@
             }
             
             .vehicle-types, .model-selection {
+                grid-template-columns: 1fr;
+            }
+            
+            .trim-levels {
+                flex-direction: column;
+            }
+            
+            .model-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .spec-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -754,6 +780,414 @@
             margin-bottom: 30px;
         }
         
+        /* 新增车型详情页样式 */
+        .model-detail-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin: 0 auto 40px;
+        }
+        
+        .model-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .model-header h1 {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .model-header .price {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .model-header .subtitle {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        
+        /* 轮播图样式 */
+        .model-hero {
+            position: relative;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .model-hero-slides {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .model-hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+        }
+        
+        .model-hero-slide.active {
+            opacity: 1;
+        }
+        
+        .model-hero-content {
+            position: relative;
+            color: white;
+            text-align: left;
+            max-width: 600px;
+            padding: 40px;
+            z-index: 2;
+        }
+        
+        .model-hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            z-index: 1;
+        }
+        
+        .model-hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .model-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--primary);
+        }
+        
+        .carousel-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .carousel-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-arrow:hover {
+            background: var(--primary);
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .spec-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .spec-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .spec-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .spec-card p {
+            color: var(--gray);
+        }
+        
+        .feature-section {
+            margin-bottom: 50px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-item:hover .feature-image img {
+            transform: scale(1.05);
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .feature-content p {
+            color: var(--gray);
+        }
+        
+        .tech-specs {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .spec-table th, .spec-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .spec-table th {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .color-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .color-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .color-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .color-circle:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-circle.selected {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(235,10,30,0.3);
+        }
+        
+        .color-name {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #1a1a1a, #333);
+            color: white;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .trim-levels {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .trim-level {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 250px;
+            transition: var(--transition);
+            border: 2px solid #eee;
+        }
+        
+        .trim-level:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .trim-level h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .trim-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .trim-features {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .trim-features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .trim-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -766,10 +1200,10 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link" data-page="home">首页</a></li>
-                <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
-                <li><a href="#">最新资讯</a></li>
-                <li><a href="#">经销商查询</a></li>
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
+                <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
+                <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -779,9 +1213,260 @@
         </div>
     </header>
 
-        <div style="width: 80%; margin: 0 auto; ">
-            <p style="font-family: SimHEi; font-size: 200px; text-align: center; ">Work in Progress</p>
+    <!-- 车型详情页内容 -->
+    <div class="main-container">
+        <div class="model-detail-container">
+            
+            <!-- 轮播图部分 -->
+            <div class="model-hero">
+                <div class="model-hero-slides">
+                    <!-- 轮播图1 -->
+                    <div class="model-hero-slide active" style="background-image:url('../images/foral_kuna/F.png'); ">
+                        <div class="model-hero-content">
+                            <h2>优雅设计，卓越性能</h2>
+                            <p>KUNA融合了风傲最新设计语言与尖端技术，提供无与伦比的驾驶体验</p>
+                            <button class="btn btn-primary">预约试驾</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 轮播图2 -->
+                    <div class="model-hero-slide" style="background-image:url('../images/foral_kuna/S.png'); ">
+                        <div class="model-hero-content">
+                            <h2>智能混合动力系统</h2>
+                            <p>新一代混合动力技术，无缝切换电动与燃油模式，提供平顺而高效的驾驶体验</p>
+                            <button class="btn btn-primary">预约试驾</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 轮播图3 -->
+                    <div class="model-hero-slide" style="background-image:url('../images/foral_kuna/R.png'); ">
+                        <div class="model-hero-content">
+                            <h2>豪华内饰空间</h2>
+                            <p>精心打造的内饰空间，采用高级材料和人体工学设计，提供极致的驾乘舒适性</p>
+                            <button class="btn btn-primary">预约试驾</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 轮播导航点 -->
+                    <div class="carousel-nav">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
+                    </div>
+                    
+                    <!-- 轮播箭头 -->
+                    <div class="carousel-arrows">
+                        <div class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="carousel-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>高效动力</h3>
+                    <p>2.5L智能混合动力系统，综合功率218马力</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-gas-pump"></i>
+                    <h3>超低油耗</h3>
+                    <p>百公里综合油耗仅4.5L，续航超过1000公里</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>顶级安全</h3>
+                    <p>配备10安全气囊及最新主动安全系统</p>
+                </div>
+                <div class="spec-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>智能科技</h3>
+                    <p>12.3英寸数字仪表盘与智能互联系统</p>
+                </div>
+            </div>
+            
+            <div class="feature-section">
+                <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem; color: var(--secondary);">核心特性</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #2c3e50, #4ca1af);"></div>
+                        <div class="feature-content">
+                            <h3>智能混合动力系统</h3>
+                            <p>新一代混合动力技术，无缝切换电动与燃油模式，提供平顺而高效的驾驶体验。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #1a2a6c, #b21f1f);"></div>
+                        <div class="feature-content">
+                            <h3>高级驾驶辅助系统</h3>
+                            <p>全系标配风傲Safety Sense 3.0，包含自适应巡航、车道保持和自动紧急制动等功能。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #283c86, #45a247);"></div>
+                        <div class="feature-content">
+                            <h3>舒适豪华内饰</h3>
+                            <p>精心打造的内饰空间，采用高级材料和人体工学设计，提供极致的驾乘舒适性。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-image" style="background: linear-gradient(to right, #4b6cb7, #182848);"></div>
+                        <div class="feature-content">
+                            <h3>智能互联体验</h3>
+                            <p>12.3英寸触控屏支持Apple CarPlay和Android Auto，打造无缝智能互联体验。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #3498db, #8e44ad);"></div>
+                    <div class="gallery-caption">流线型外观设计</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #e74c3c, #f39c12);"></div>
+                    <div class="gallery-caption">豪华内饰空间</div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #27ae60, #2ecc71);"></div>
+                    <div class="gallery-caption">智能驾驶舱</div>
+                </div>
+            </div>
+            
+            <div class="tech-specs">
+                <h2 style="text-align: center; margin-bottom: 30px; font-size: 2rem; color: var(--secondary);">技术规格</h2>
+                <table class="spec-table">
+                    <tr>
+                        <th>规格</th>
+                        <th>精英版</th>
+                        <th>豪华版</th>
+                        <th>旗舰版</th>
+                    </tr>
+                    <tr>
+                        <td>发动机</td>
+                        <td>2.5L 混合动力</td>
+                        <td>2.5L 混合动力</td>
+                        <td>2.5L 高性能混合动力</td>
+                    </tr>
+                    <tr>
+                        <td>最大功率</td>
+                        <td>178马力</td>
+                        <td>178马力</td>
+                        <td>218马力</td>
+                    </tr>
+                    <tr>
+                        <td>综合油耗(L/100km)</td>
+                        <td>4.5</td>
+                        <td>4.6</td>
+                        <td>5.1</td>
+                    </tr>
+                    <tr>
+                        <td>变速箱</td>
+                        <td>E-CVT</td>
+                        <td>E-CVT</td>
+                        <td>E-CVT</td>
+                    </tr>
+                    <tr>
+                        <td>驱动方式</td>
+                        <td>前轮驱动</td>
+                        <td>前轮驱动</td>
+                        <td>电子四驱</td>
+                    </tr>
+                    <tr>
+                        <td>0-100km/h加速</td>
+                        <td>8.9秒</td>
+                        <td>8.9秒</td>
+                        <td>7.5秒</td>
+                    </tr>
+                    <tr>
+                        <td>智能安全系统</td>
+                        <td>标准版</td>
+                        <td>增强版</td>
+                        <td>旗舰版</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="model-header">
+                <h1>风傲 KUNA</h1>
+                <div class="price">¥168,800 起</div>
+                <p class="subtitle">重新定义驾驶体验，融合优雅设计与尖端科技</p>
+                <div class="trim-levels">
+                    <div class="trim-level">
+                        <h3>精英版</h3>
+                        <div class="trim-price">¥168,800</div>
+                        <ul class="trim-features">
+                            <li>2.5L 智能混合动力系统</li>
+                            <li>17英寸合金轮毂</li>
+                            <li>10.1英寸中控触摸屏</li>
+                            <li>智能钥匙系统</li>
+                            <li>自动空调</li>
+                        </ul>
+                        <button class="btn btn-outline">查看详情</button>
+                    </div>
+                    <div class="trim-level">
+                        <h3>豪华版</h3>
+                        <div class="trim-price">¥198,800</div>
+                        <ul class="trim-features">
+                            <li>2.5L 智能混合动力系统</li>
+                            <li>18英寸运动轮毂</li>
+                            <li>12.3英寸全液晶仪表</li>
+                            <li>全景天窗</li>
+                            <li>智能安全套装</li>
+                        </ul>
+                        <button class="btn btn-outline">查看详情</button>
+                    </div>
+                    <div class="trim-level">
+                        <h3>旗舰版</h3>
+                        <div class="trim-price">¥228,800</div>
+                        <ul class="trim-features">
+                            <li>2.5L 高性能混合动力</li>
+                            <li>19英寸专属轮毂</li>
+                            <li>高级真皮座椅</li>
+                            <li>JBL高级音响系统</li>
+                            <li>全自动驾驶辅助</li>
+                        </ul>
+                        <button class="btn btn-primary">立即购买</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-options">
+                <h3 style="width: 100%; margin-bottom: 20px; font-size: 1.5rem;">可选颜色</h3>
+                <div class="color-option">
+                    <div class="color-circle selected" style="background: #2c3e50;"></div>
+                    <span class="color-name">星耀黑</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #e74c3c;"></div>
+                    <span class="color-name">烈焰红</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #3498db;"></div>
+                    <span class="color-name">天际蓝</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #ecf0f1;"></div>
+                    <span class="color-name">珍珠白</span>
+                </div>
+                <div class="color-option">
+                    <div class="color-circle" style="background: #7f8c8d;"></div>
+                    <span class="color-name">钛银灰</span>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>准备好体验风傲KUNA了吗？</h2>
+                <p>立即预约试驾或联系您附近的经销商</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" style="background: white; color: var(--secondary);">预约试驾</button>
+                    <button class="btn btn-outline" style="border-color: white; color: white;">查找经销商</button>
+                    <button class="btn btn-primary">在线定制您的KUNA</button>
+                </div>
+            </div>
         </div>
+    </div>
     
     <!-- 页脚 -->
     <footer>
@@ -802,9 +1487,9 @@
                 <ul class="footer-links">
                     <li><a href="#">KUNA</a></li>
                     <li><a href="#">X2B</a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="#">GT-7</a></li>
+                    <li><a href="#">E-200</a></li>
+                    <li><a href="#">Voyager</a></li>
                 </ul>
             </div>
             
@@ -831,11 +1516,76 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | </p>
+            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | 隐私政策 | 使用条款</p>
         </div>
     </footer>
     
     <script>
+        // 轮播图功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.model-hero-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.querySelector('.carousel-arrow.prev');
+        const nextBtn = document.querySelector('.carousel-arrow.next');
+        let slideInterval;
+        
+        // 显示指定幻灯片
+        function showSlide(index) {
+            // 移除所有活动状态
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // 添加当前活动状态
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        // 下一张幻灯片
+        function nextSlide() {
+            let nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+        
+        // 上一张幻灯片
+        function prevSlide() {
+            let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        }
+        
+        // 开始自动轮播
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // 暂停自动轮播
+        function pauseAutoSlide() {
+            clearInterval(slideInterval);
+        }
+        
+        // 初始化轮播图
+        function initCarousel() {
+            showSlide(0);
+            startAutoSlide();
+            
+            // 鼠标悬停时暂停自动轮播
+            const carousel = document.querySelector('.model-hero');
+            carousel.addEventListener('mouseenter', pauseAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            
+            // 导航点点击事件
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // 箭头按钮事件
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+        }
+        
         // 页面导航功能
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -856,82 +1606,46 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            // document.getElementById(`${pageId}-page`).classList.add('active');
-            if (pageId == "home"){
-                window.location.href = "../index.html";
-            }
-            else if (pageId == "about"){
-                window.location.href = "../introduction.html";
-            }
+            window.location.href = "../" + pageId + ".html"
         }
         
-        // 返回上一页
-        function goBack(targetPage) {
-            // showPage(targetPage);
-            window.location.href = "../models_sedan.html";
-        }
-        
-        // 车辆类型选择
-        function selectType(type) {
-            showPage('model');
-        }
-        
-        // 车型选择
-        function selectModel(model) {
-            showPage('config');
-        }
-        
-        // 配置选项选择
-        var catas = new Array()
-        function selectOption(element, category, option, ord, val) {
-            // 移除同组其他选项的选择状态
-            const group = element.parentElement;
-            group.querySelectorAll('.option-card').forEach(card => {
-                card.classList.remove('selected');
+        // 颜色选择功能
+        document.querySelectorAll('.color-circle').forEach(circle => {
+            circle.addEventListener('click', function() {
+                document.querySelectorAll('.color-circle').forEach(c => {
+                    c.classList.remove('selected');
+                });
+                this.classList.add('selected');
             });
-
-            var judge = true;
-            for (var i = 0; i < catas.length; i++){
-                if (catas[i] == category) {
-                    judge = false;
-                    break;
-                }
-            }
-            if (judge){
-                catas.push(category);
-            }
-            
-            // 添加当前选项的选择状态
-            element.classList.add('selected');
-            document.getElementById(category).innerHTML = option;
-            // 这里可以添加更新配置预览和价格的逻辑
-            value[ord] = val;
-            var result = valueBasic;
-            for(var i = 1; i <= value.length; i++){
-                if (value[i] != null) {
-                    result += value[i];
-                    document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
-                }
-            }
-            document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
-            localStorage.setItem(category, option);
-            localStorage.setItem("valueBasic", valueBasic);
-            localStorage.setItem("valueTotal", result);
-        }
+        });
         
-        // 显示配置预览页面
-        function showPreview() {
-            // showPage('preview');
-            localStorage.setItem('category', catas);
-            window.location.href = "result.html";
-        }
+        // 车型版本切换动画
+        document.querySelectorAll('.trim-level').forEach(level => {
+            level.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
+            });
+            
+            level.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+            });
+        });
+        
+        // 预约试驾按钮动画
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
         
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
-            // 默认显示首页
-            // showPage('home');
-            // window.location.href = "../index.html";
-            result();
+            initCarousel();
         });
     </script>
 </body>
