@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FORAL | 风傲汽车</title>
-    <link rel="icon" type="image/svg" href="svg/foral_logo_black.svg">
+    <title>FORAL | 风傲 广汽风傲 KUNA</title>
+    <link rel="icon" type="image/svg" href="../svg/foral_logo_black.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -749,125 +749,11 @@
             margin-right: 8px;
         }
 
-        /* 新增轮播图样式 */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .carousel-slide.active {
-            opacity: 1;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .carousel-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
         .carousel-logo {
             width: 10%;
             margin-bottom: 30px;
         }
-
-        .carousel-button {
-            margin-top: 20px;
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .carousel-button:hover {
-            background-color: #c9091a;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .carousel-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            z-index: 10;
-        }
-
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            margin: 0 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: var(--primary);
-        }
-
-        .carousel-arrows {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-
-        .carousel-arrow {
-            width: 50px;
-            height: 50px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-arrow:hover {
-            background: var(--primary);
-        }
+        
     </style>
 </head>
 <body>
@@ -875,12 +761,12 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img onclick="showPage('index')" src="svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
+                <img onclick="showPage('index')" src="../svg/foral_logo_background.svg" alt="风傲logo" class="carousel-logo" style="transform: scale(0.4); position: absolute; margin: 0 auto;  left: 10%; "></img>
                 <span class="logo-text" style="position: absolute; margin: 0 auto; left: 18%; ">风傲汽车</span>
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="index">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="index">首页</a></li>
                 <li><a href="#" class="nav-link" data-page="introduction">品牌介绍</a></li>
                 <li><a href="#" class="nav-link" data-page="news">最新资讯</a></li>
                 <li><a href="#" class="nav-link" data-page="dealer">经销商查询</a></li>
@@ -893,115 +779,158 @@
         </div>
     </header>
 
-    <!-- 轮播图部分 -->
-    <div class="carousel-container">
-
-        <!-- 轮播图1 -->
-        <div class="carousel-slide active">
-            
-            <img src="images/mainPhoto1.png" alt="风傲汽车旗舰车型">
-            <div class="carousel-content">
-                <h2 style="font-size: 2.5rem; margin-bottom: 15px;">风傲旗舰轿车系列</h2>
-                <p style="font-size: 1.2rem; max-width: 600px;">重新定义豪华驾驶体验，融合尖端科技与精湛工艺</p>
-                <button class="carousel-button">探索旗舰系列</button>
-            </div>
-        </div>
+        <script>
+            var valueBasic = 329800;
+            var value = new Array();
+            // var category = new Array();
+        </script>
         
-        <!-- 轮播图2 -->
-        <div class="carousel-slide">
-            <img src="images/mainPhoto2.png" alt="风傲SUV车型">
-            <div class="carousel-content">
-                <h2 style="font-size: 2.5rem; margin-bottom: 15px;">全新风傲X2B SUV</h2>
-                <p style="font-size: 1.2rem; max-width: 600px;">无畏前行，征服每一段旅程，感受真正的自由</p>
-                <button class="carousel-button">了解SUV系列</button>
-            </div>
-        </div>
-        
-        <!-- 轮播图3 -->
-        <div class="carousel-slide">
-            <img src="images/mainPhoto3.png" alt="风傲跑车系列">
-            <div class="carousel-content">
-                <h2 style="font-size: 2.5rem; margin-bottom: 15px;">雷夫洛特超跑系列</h2>
-                <p style="font-size: 1.2rem; max-width: 600px;">极致性能与美学设计的完美结合，释放驾驶激情</p>
-                <button class="carousel-button">探索跑车系列</button>
-            </div>
-        </div>
-        
-        <!-- 轮播导航点 -->
-        <div class="carousel-nav">
-            <div class="carousel-dot active" data-index="0"></div>
-            <div class="carousel-dot" data-index="1"></div>
-            <div class="carousel-dot" data-index="2"></div>
-        </div>
-        
-        <!-- 轮播箭头 -->
-        <div class="carousel-arrows">
-            <div class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></div>
-            <div class="carousel-arrow next"><i class="fas fa-chevron-right"></i></div>
-        </div>
-    </div>
-
-    <!-- 主内容区 - 首页 -->
-    <div class="main-container">
-        <div class="page active" id="home-page">
+        <!-- 配置选装页面 -->
+        <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
+            <a href="#" class="back-btn" onclick="goBack('model-page')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
-                <h1>探索风傲世界</h1>
-                <p>从高效能的混合动力系统到令人兴奋的极致驾驶体验，风傲汽车为您提供多样化选择</p>
+                <h1>定制您的Incity</h1>
+                <p>选择配置和选装件，打造专属于您的风傲座驾</p>
             </div>
             
-            <!-- 车辆类型选择 -->
-            <section id="vehicle-types">
-                <h2 style="margin-bottom: 30px; color: var(--secondary);">选择您的车辆类型</h2>
-                <div class="vehicle-types">
-                    <div class="type-card" onclick="selectType('sedan')">
-                        <img src="images/Sedan.png" alt="轿车">
-                        <div class="type-content">
-                            <h3>轿车</h3>
-                            <p>优雅设计，舒适驾乘，城市通勤的理想选择</p>
-                            <div class="btn btn-primary">选择此类型</div>
+            <div class="config-container">
+                <div class="config-options">
+                    <div class="option-group">
+                        <h3>外观颜色</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'color', '珍珠白', 1, 0)">
+                                <h4>珍珠白</h4>
+                                <p>优雅经典，适合各种场合</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '金属灰', 1, 2000)">
+                                <h4>金属灰</h4>
+                                <p>现代感十足，彰显个性</p>
+                                <div class="option-price">+¥2,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'color', '烈焰红', 1, 3000)">
+                                <h4>烈焰红</h4>
+                                <p>热情奔放，路上焦点</p>
+                                <div class="option-price">+¥3,000</div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="type-card" onclick="selectType('suv')">
-                         <img src="images/SUV.png" alt="SUV">
-                        <div class="type-content">
-                            <h3>SUV</h3>
-                            <p>多功能空间，强大性能，适应各种路况</p>
-                            <div class="btn btn-primary">选择此类型</div>
+                    <div class="option-group">
+                        <h3>内饰风格</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'interior', '黑色皮革内饰', 2, 0)">
+                                <h4>黑色皮革内饰</h4>
+                                <p>经典稳重，易于打理</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '米色真皮内饰', 2, 5000)">
+                                <h4>米色真皮内饰</h4>
+                                <p>温馨舒适，提升豪华感</p>
+                                <div class="option-price">+¥5,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'interior', '运动红黑内饰', 2, 4500)">
+                                <h4>运动红黑内饰</h4>
+                                <p>激情动感，驾驶乐趣</p>
+                                <div class="option-price">+¥4,500</div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="type-card" onclick="selectType('sportcar')">
-                        <img src="images/SportCar.png" alt="跑车">
-                        <div class="type-content">
-                            <h3>跑车</h3>
-                            <p>澎湃动力，精准操控，释放驾驶激情</p>
-                            <div class="btn btn-primary">选择此类型</div>
+                    <div class="option-group">
+                        <h3>科技选装包</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'tech', '基础科技包', 3, 0)">
+                                <h4>基础科技包</h4>
+                                <p>标配科技功能</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '智能安全包', 3, 12000)">
+                                <h4>智能安全包</h4>
+                                <p>包含自适应巡航、盲点监测等</p>
+                                <div class="option-price">+¥12,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'tech', '豪华科技包', 3, 25000)">
+                                <h4>豪华科技包</h4>
+                                <p>包含HUD、360影像、高级音响</p>
+                                <div class="option-price">+¥25,000</div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="type-card" onclick="selectType('mpv')">
-                        <img src="images/MPV.png" alt="MPV">
-                        <div class="type-content">
-                            <h3>MPV</h3>
-                            <p>宽敞空间，灵活布局，家庭出行的完美伙伴</p>
-                            <div class="btn btn-primary">选择此类型</div>
-                        </div>
-                    </div>
-
-                    <div class="type-card" onclick="selectType('newenergy')">
-                        <img src="images/NewEnergy.png" alt="新能源">
-                        <div class="type-content">
-                            <h3>新能源</h3>
-                            <p>绿色出行，环保先锋</p>
-                            <div class="btn btn-primary">选择此类型</div>
+                    <div class="option-group">
+                        <h3>轮毂选择</h3>
+                        <div class="options">
+                            <div class="option-card selected" onclick="selectOption(this, 'wheels', '17英寸合金轮毂', 4, 0)">
+                                <h4>17英寸合金轮毂</h4>
+                                <p>标准配置</p>
+                                <div class="option-price">+¥0</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '18英寸运动轮毂', 4, 8000)">
+                                <h4>18英寸运动轮毂</h4>
+                                <p>增强操控性和外观</p>
+                                <div class="option-price">+¥8,000</div>
+                            </div>
+                            <div class="option-card" onclick="selectOption(this, 'wheels', '19英寸豪华轮毂', 4, 15000)">
+                                <h4>19英寸豪华轮毂</h4>
+                                <p>豪华大气，提升整体质感</p>
+                                <div class="option-price">+¥15,000</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+                
+                <div class="config-preview">
+                    <h3>预览</h3>
+                    <div class="preview-image">
+                        <img src="../images/foral_incity/F.png" alt="车辆预览">
+                    </div>
+                    
+                    <div class="price-summary">
+                        <h4>价格明细</h4>
+                        <div class="price-item">
+                            <span>基础车型</span>
+                            <span id = "valueBasic">¥329,800</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "color">珍珠白</span>
+                            <span id = "value1">¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "interior">黑色皮革内饰</span>
+                            <span id = "value2">¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "tech">基础科技包</span>
+                            <span id = "value3">¥0</span>
+                        </div>
+                        <div class="price-item">
+                            <span id = "wheels">17英寸合金轮毂</span>
+                            <span id = "value4">¥0</span>
+                        </div>
+                        <div class="price-total">
+                            <span>总计</span>
+                            <script>
+                                function result(num, _value){
+                                    // value[num] = _value;
+                                    // var result = valueBasic;
+                                    // for(var i = 1; i <= value.length; i++){
+                                    //     if (value[i] != null) {
+                                    //         result += value[i];
+                                    //         document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
+                                    //     }
+                                    // }
+                                    // document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
+                                }
+                            </script>
+                            <span id = "result">¥329,800</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%;" onclick="showPreview()">确认配置</button>
+                </div>
+            </div>
         </div>
-        
-    </div>
     
     <!-- 页脚 -->
     <footer>
@@ -1022,9 +951,9 @@
                 <ul class="footer-links">
                     <li><a href="#">KUNA</a></li>
                     <li><a href="#">X2B</a></li>
-                    <li><a href="#">GT-7</a></li>
-                    <li><a href="#">E-200</a></li>
-                    <li><a href="#">Voyager</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
                 </ul>
             </div>
             
@@ -1051,67 +980,11 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | 隐私政策 | 使用条款</p>
+            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | </p>
         </div>
     </footer>
     
     <script>
-        // 轮播图功能
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const prevBtn = document.querySelector('.carousel-arrow.prev');
-        const nextBtn = document.querySelector('.carousel-arrow.next');
-        
-        // 显示指定幻灯片
-        function showSlide(index) {
-            // 移除所有活动状态
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // 添加当前活动状态
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-            
-            currentSlide = index;
-        }
-        
-        // 下一张幻灯片
-        function nextSlide() {
-            let nextIndex = (currentSlide + 1) % slides.length;
-            showSlide(nextIndex);
-        }
-        
-        // 上一张幻灯片
-        function prevSlide() {
-            let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(prevIndex);
-        }
-        
-        // 自动轮播
-        let slideInterval = setInterval(nextSlide, 5000);
-        
-        // 鼠标悬停时暂停自动轮播
-        const carousel = document.querySelector('.carousel-container');
-        carousel.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-        
-        carousel.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-        
-        // 导航点点击事件
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showSlide(index);
-            });
-        });
-        
-        // 箭头按钮事件
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-        
         // 页面导航功能
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -1132,17 +1005,81 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            window.location.href = pageId + ".html"
+            window.location.href = "../" + pageId + ".html"
+        }
+        
+        // 返回上一页
+        function goBack(targetPage) {
+            // showPage(targetPage);
+            window.location.href = "../models_suv.html";
         }
         
         // 车辆类型选择
         function selectType(type) {
-            window.location.href = "models_" + type + ".html";
+            showPage('model');
+        }
+        
+        // 车型选择
+        function selectModel(model) {
+            showPage('config');
+        }
+        
+        // 配置选项选择
+        var catas = new Array()
+        function selectOption(element, category, option, ord, val) {
+            // 移除同组其他选项的选择状态
+            const group = element.parentElement;
+            group.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            var judge = true;
+            for (var i = 0; i < catas.length; i++){
+                if (catas[i] == category) {
+                    judge = false;
+                    break;
+                }
+            }
+            if (judge){
+                catas.push(category);
+            }
+            
+            // 添加当前选项的选择状态
+            element.classList.add('selected');
+            document.getElementById(category).innerHTML = option;
+            // 这里可以添加更新配置预览和价格的逻辑
+            value[ord] = val;
+            var result = valueBasic;
+            for(var i = 1; i <= value.length; i++){
+                if (value[i] != null) {
+                    result += value[i];
+                    document.getElementById('value' + i).innerHTML = "¥" + value[i].toLocaleString();
+                }
+            }
+            document.getElementById('result').innerHTML = "¥" + result.toLocaleString();
+            localStorage.setItem(category, option);
+            localStorage.setItem("valueBasic", valueBasic);
+            localStorage.setItem("valueTotal", result);
+        }
+        
+        // 显示配置预览页面
+        function showPreview() {
+            // showPage('preview');
+            localStorage.setItem('category', catas);
+            window.location.href = "result.html";
         }
         
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
+            // showPage('home');
+            // window.location.href = "../index.html";
+            document.getElementById("valueBasic").innerHTML = "¥" + valueBasic.toLocaleString();
+            document.getElementById("result").innerHTML = "¥" + valueBasic.toLocaleString();
+            selectOption(this, 'color', '珍珠白', 1, 0);
+            selectOption(this, 'interior', '黑色皮革', 2, 0);
+            selectOption(this, 'tech', '基础版', 3, 0);
+            selectOption(this, 'wheels', '17英寸合金轮毂', 4, 0);
         });
     </script>
 </body>

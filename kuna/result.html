@@ -781,7 +781,7 @@
         
         <!-- 价格预览页面 -->
         <div class="page active" id="preview-page" style="width: 80%; margin: 0 auto; ">
-            <a href="#" class="back-btn" onclick="goBack('config-page')"><i class="fas fa-arrow-left"></i> 返回配置选择</a>
+            <a href="#" class="back-btn" onclick="goBack('sedan')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
                 <h1>您的风傲配置</h1>
                 <p>查看您精心选择的配置和最终价格</p>
@@ -854,7 +854,7 @@
                     </div>
                     
                     <div style="display: flex; gap: 15px; margin-top: 30px;">
-                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('config-page')">修改配置</button>
+                        <button class="btn btn-outline" style="flex: 1;" onclick="goBack('sedan')">修改配置</button>
                         <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
                         <!-- <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://beamng.com/game/')">预约试驾</button> -->
                         <button class="btn btn-primary" style="flex: 1;" onclick="linkOut('https://github.com/NiZhaZi/Beamng_Hybrid_and_EV_Mod/releases/download/Sample_Cars/ind_f2_lqm.zip')">立即订购</button>
@@ -976,9 +976,9 @@
         }
         
         // 返回上一页
-        function goBack(targetPage) {
+        function goBack(model) {
             // showPage(targetPage);
-            window.location.href = "../models_sedan.html";
+            window.location.href = "../models_" + model + ".html";
         }
         
         // 车辆类型选择

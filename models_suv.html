@@ -838,7 +838,7 @@
             </div>
             
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="home">首页</a></li>
+                <li><a href="#" class="nav-link" data-page="home">首页</a></li>
                 <li><a href="#" class="nav-link" data-page="about">品牌介绍</a></li>
                 <li><a href="#">最新资讯</a></li>
                 <li><a href="#">经销商查询</a></li>
@@ -855,7 +855,7 @@
         <div class="page active" id="home-page" style="width: 80%; margin: 0 auto; ">
             <a href="#" class="back-btn" onclick="goBack('home-page')"><i class="fas fa-arrow-left"></i> 返回</a>
             <div class="page-title">
-                <h1>选择您的车型</h1>
+                <h1>选择您的SUV车型</h1>
                 <p>探索我们精心设计的各种车型，找到最适合您的驾驶伙伴</p>
             </div>
             
@@ -864,45 +864,91 @@
                 <div class="model-card">
                     <div class="image-card model-image">
                         <div class="image-container">
-                         <img src="images/foral_kuna/S.png" alt="kunaS" class="default-img">
-                         <img src="images/foral_kuna/F.png" alt="kunaF" class="hover-img">
+                         <img src="images/foral_incity/S.png" alt="incityS" class="default-img">
+                         <img src="images/foral_incity/F.png" alt="incityF" class="hover-img">
                         </div>
                     </div>
                     <div class="model-info">
-                        <h3>广汽风傲KUNA</h3>
-                        <div class="model-price">¥89,800起</div>
+                        <h3>进口风傲Incity</h3>
+                        <div class="model-price">¥329,800起</div>
                         <div class="model-features">
                             <span class="feature">混合动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">环保内饰</span>
+                            <span class="feature">先进底盘技术</span>
+                            <span class="feature">豪华内饰</span>
                         </div>
-                        <p>入门级轿车，以入门级的价格享受旗舰级的科技</p>
+                        <p>高端豪华SUV，精心编织每一处细节</p>
                         <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('kuna')">选择此车型</button>
+                            <button class="btn btn-outline" onclick="aboutModel('incity')">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('incity')">选择此车型</button>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="model-card">
                     <div class="image-card model-image">
                         <div class="image-container">
-                         <img src="images/foral_x2b/F.png" alt="x2bF" class="default-img">
-                         <img src="images/foral_x2b/R.png" alt="x2bR" class="hover-img">
+                         <img src="images/foral_clanily/S.png" alt="clanilyS" class="default-img">
+                         <img src="images/foral_clanily/F.png" alt="clanilyF" class="hover-img">
                         </div>
                     </div>
                     <div class="model-info">
-                        <h3>风傲汽车X2B</h3>
-                        <div class="model-price">¥189,800起</div>
+                        <h3>一汽风傲Clanily</h3>
+                        <div class="model-price">¥129,800起</div>
                         <div class="model-features">
-                            <span class="feature">纯电动力</span>
-                            <span class="feature">智能安全系统</span>
-                            <span class="feature">豪华内饰</span>
+                            <span class="feature">混合动力</span>
+                            <span class="feature">极致节能</span>
+                            <span class="feature">高效多功能</span>
                         </div>
-                        <p>中级纯电轿车，融合先进技术与豪华舒适</p>
+                        <p>时尚紧凑型SUV，居家首选</p>
                         <div class="model-actions">
-                            <button class="btn btn-outline">查看详情</button>
-                            <button class="btn btn-primary" onclick="selectModel('x2b')">选择此车型</button>
+                            <button class="btn btn-outline" onclick="aboutModel('clanily')">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('clanily')">选择此车型</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="image-card model-image">
+                        <div class="image-container">
+                         <img src="images/foral_skyler/S.png" alt="skylerS" class="default-img">
+                         <img src="images/foral_skyler/F.png" alt="skylerF" class="hover-img">
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <h3>广汽风傲Skyler</h3>
+                        <div class="model-price">¥202,800起</div>
+                        <div class="model-features">
+                            <span class="feature">混合动力</span>
+                            <span class="feature">高效动力</span>
+                            <span class="feature">全地形多功能</span>
+                        </div>
+                        <p>多功能中型SUV，走近更便捷的生活</p>
+                        <div class="model-actions">
+                            <button class="btn btn-outline" onclick="aboutModel('skyler')">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('skyler')">选择此车型</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model-card">
+                    <div class="image-card model-image">
+                        <div class="image-container">
+                         <img src="images/foral_age/S.png" alt="ageS" class="default-img">
+                         <img src="images/foral_age/F.png" alt="ageF" class="hover-img">
+                        </div>
+                    </div>
+                    <div class="model-info">
+                        <h3>广汽风傲AGE</h3>
+                        <div class="model-price">¥306,000起</div>
+                        <div class="model-features">
+                            <span class="feature">增程动力</span>
+                            <span class="feature">高效动力</span>
+                            <span class="feature">奢华内饰</span>
+                        </div>
+                        <p>豪华中大型SUV，奢华与科技的结合</p>
+                        <div class="model-actions">
+                            <button class="btn btn-outline" onclick="aboutModel('age')">查看详情</button>
+                            <button class="btn btn-primary" onclick="selectModel('age')">选择此车型</button>
                         </div>
                     </div>
                 </div>
@@ -914,8 +960,8 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>丰田汽车</h3>
-                <p>丰田致力于为全球消费者提供高品质、安全可靠的汽车产品，创造更加美好的移动社会。</p>
+                <h3>风傲汽车</h3>
+                <p>风傲致力于为全球消费者提供高品质、安全可靠的汽车产品，创造更加美好的移动社会。</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -927,11 +973,11 @@
             <div class="footer-column">
                 <h3>热门车型</h3>
                 <ul class="footer-links">
-                    <li><a href="#">凯美瑞</a></li>
-                    <li><a href="#">卡罗拉</a></li>
-                    <li><a href="#">RAV4荣放</a></li>
-                    <li><a href="#">汉兰达</a></li>
-                    <li><a href="#">普锐斯</a></li>
+                    <li><a href="#">KUNA</a></li>
+                    <li><a href="#">X2B</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
                 </ul>
             </div>
             
@@ -949,16 +995,16 @@
             <div class="footer-column">
                 <h3>联系我们</h3>
                 <ul class="footer-links">
-                    <li><i class="fas fa-map-marker-alt"></i> 上海市浦东新区丰田路1号</li>
-                    <li><i class="fas fa-phone"></i> 400-810-1210</li>
-                    <li><i class="fas fa-envelope"></i> contact@toyota.com.cn</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 莱姆利尔联邦共和国联邦首都省联邦城下城区工业路1号 </li>
+                    <li><i class="fas fa-phone"></i> +1-505-842-5662</li>
+                    <li><i class="fas fa-envelope"></i> foralauto@protonmail.com</li>
                     <li><i class="fas fa-clock"></i> 周一至周五 9:00-18:00</li>
                 </ul>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&copy; 2023 丰田汽车公司 版权所有 | 沪ICP备12345678号</p>
+            <p>&copy; 2025 莱姆利尔工业集团 版权所有 | </p>
         </div>
     </footer>
     
@@ -983,7 +1029,13 @@
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            document.getElementById(`${pageId}-page`).classList.add('active');
+            // document.getElementById(`${pageId}-page`).classList.add('active');
+            if (pageId == "home"){
+                window.location.href = "index.html";
+            }
+            else if (pageId == "about"){
+                window.location.href = "introduction.html";
+            }
         }
         
         // 返回上一页
@@ -1001,6 +1053,11 @@
         function selectModel(model) {
             // showPage('config');
             window.location.href = model + "/" + model + ".html";
+        }
+
+        function aboutModel(model) {
+            // showPage('config');
+            window.location.href = model + "/" + "about.html";
         }
         
         // 配置选项选择
@@ -1025,7 +1082,8 @@
         // 初始化页面
         document.addEventListener('DOMContentLoaded', function() {
             // 默认显示首页
-            showPage('home');
+            // showPage('home');
+            // window.location.href = "index.html";
         });
     </script>
 </body>
