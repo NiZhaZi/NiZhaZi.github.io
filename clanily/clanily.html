@@ -1024,15 +1024,7 @@
             showPage('config');
         }
         
-        // 配置选项选择
-        var catas = new Array()
-        function selectOption(element, category, option, ord, val) {
-            // 移除同组其他选项的选择状态
-            const group = element.parentElement;
-            group.querySelectorAll('.option-card').forEach(card => {
-                card.classList.remove('selected');
-            });
-
+        function init(category, option, ord, val){
             var judge = true;
             for (var i = 0; i < catas.length; i++){
                 if (catas[i] == category) {
@@ -1043,11 +1035,7 @@
             if (judge){
                 catas.push(category);
             }
-            
-            // 添加当前选项的选择状态
-            element.classList.add('selected');
-            document.getElementById(category).innerHTML = option;
-            // 这里可以添加更新配置预览和价格的逻辑
+
             value[ord] = val;
             var result = valueBasic;
             for(var i = 1; i <= value.length; i++){
@@ -1060,6 +1048,23 @@
             localStorage.setItem(category, option);
             localStorage.setItem("valueBasic", valueBasic);
             localStorage.setItem("valueTotal", result);
+
+            document.getElementById(category).innerHTML = option;
+        }
+        
+        // 配置选项选择
+        var catas = new Array()
+        function selectOption(element, category, option, ord, val) {
+            // 移除同组其他选项的选择状态
+            const group = element.parentElement;
+            group.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // 添加当前选项的选择状态
+            element.classList.add('selected');
+            // 这里可以添加更新配置预览和价格的逻辑
+            init(category, option, ord, val)
         }
         
         // 显示配置预览页面
@@ -1076,10 +1081,10 @@
             // window.location.href = "../index.html";
             document.getElementById("valueBasic").innerHTML = "¥" + valueBasic.toLocaleString();
             document.getElementById("result").innerHTML = "¥" + valueBasic.toLocaleString();
-            selectOption(this, 'color', '珍珠白', 1, 0);
-            selectOption(this, 'interior', '黑色皮革', 2, 0);
-            selectOption(this, 'tech', '基础版', 3, 0);
-            selectOption(this, 'wheels', '17英寸合金轮毂', 4, 0);
+            init('color', '珍珠白', 1, 0);
+            init('interior', '黑色皮革', 2, 0);
+            init('tech', '基础版', 3, 0);
+            init('wheels', '17英寸合金轮毂', 4, 0);
         });
     </script>
 </body>
