@@ -1207,7 +1207,7 @@
             </ul>
             
             <div class="nav-actions">
-                <a href="#" class="btn btn-outline">预约试驾</a>
+                <a href="#" class="btn btn-outline" >预约试驾</a>
                 <a href="#" class="btn btn-primary">我的风傲</a>
             </div>
         </div>
@@ -1225,7 +1225,7 @@
                         <div class="model-hero-content">
                             <h2>优雅设计，卓越性能</h2>
                             <p>Kuna融合了风傲最新设计语言与尖端技术，提供无与伦比的驾驶体验</p>
-                            <button class="btn btn-primary">预约试驾</button>
+                            <button class="btn btn-primary" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
                         </div>
                     </div>
                     
@@ -1234,7 +1234,7 @@
                         <div class="model-hero-content">
                             <h2>智能混合动力系统</h2>
                             <p>新一代混合动力技术，无缝切换电动与燃油模式，提供平顺而高效的驾驶体验</p>
-                            <button class="btn btn-primary">预约试驾</button>
+                            <button class="btn btn-primary" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
                         </div>
                     </div>
                     
@@ -1243,7 +1243,7 @@
                         <div class="model-hero-content">
                             <h2>豪华内饰空间</h2>
                             <p>精心打造的内饰空间，采用高级材料和人体工学设计，提供极致的驾乘舒适性</p>
-                            <button class="btn btn-primary">预约试驾</button>
+                            <button class="btn btn-primary" onclick="linkOut('https://store.steampowered.com/app/284160/__BeamNGdrive/')">预约试驾</button>
                         </div>
                     </div>
                     
@@ -1266,12 +1266,12 @@
                 <div class="spec-card">
                     <i class="fas fa-tachometer-alt"></i>
                     <h3>高效动力</h3>
-                    <p>2.5L智能混合动力系统，综合功率218马力</p>
+                    <p>1.4T智能混合动力系统，综合功率218马力</p>
                 </div>
                 <div class="spec-card">
                     <i class="fas fa-gas-pump"></i>
                     <h3>超低油耗</h3>
-                    <p>百公里综合油耗仅4.5L，续航超过1000公里</p>
+                    <p>百公里综合油耗仅2.5L，续航超过2000公里</p>
                 </div>
                 <div class="spec-card">
                     <i class="fas fa-shield-alt"></i>
@@ -1347,7 +1347,7 @@
                         <td>发动机</td>
                         <td>2.5L 混合动力</td>
                         <td>2.5L 混合动力</td>
-                        <td>2.5L 高性能混合动力</td>
+                        <td>2.5L 混合动力</td>
                     </tr>
                     <tr>
                         <td>最大功率</td>
@@ -1607,6 +1607,10 @@
                 page.classList.remove('active');
             });
             window.location.href = "../" + pageId + ".html"
+        }
+
+        function linkOut(web) {
+            window.location.href = web;
         }
         
         // 颜色选择功能
