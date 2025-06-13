@@ -981,37 +981,35 @@
         }
         
         // 页面加载时初始化
-        function sendCarData(data) {
-            carData = data;
-        }
-
         window.onload = function() {
             // 从JSON数据文件加载
             try {
                 // carData = JSON.parse(document.getElementById('carData').textContent);
-                $.ajax({
-                    url: "data.json?v=20250613",
-                    // async: false,
-                    success: function (res) {
-                    console.log('carData',res);
-                    sendCarData(data);
-                    // setTableGold(goldData);
-                    },
-                });
 
+                fetch('data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应不正常');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    carData = data;
+                    
+                    // 按圈速排序
+                    carData.sort((a, b) => a.lapTime - b.lapTime);
+                    filteredData = [...carData];
+                    
+                    // 渲染表格
+                    renderTable(filteredData);
+                    
+                    // 更新统计信息
+                    updateStats();
+                    
+                    // 渲染图表
+                    renderCharts();
+                })
 
-                // 按圈速排序
-                carData.sort((a, b) => a.lapTime - b.lapTime);
-                filteredData = [...carData];
-                
-                // 渲染表格
-                renderTable(filteredData);
-                
-                // 更新统计信息
-                updateStats();
-                
-                // 渲染图表
-                renderCharts();
             } catch (e) {
                 console.error('加载赛车数据失败:', e);
                 document.getElementById('tableBody').innerHTML = `
