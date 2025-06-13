@@ -985,7 +985,7 @@
             // 从JSON数据文件加载
             try {
                 // carData = JSON.parse(document.getElementById('carData').textContent);
-                fetch('./data.json')
+                fetch('data.json')
                 .then(response => response.json()) // 解析 JSON 数据
                 .then(data => {
                     console.log(data); // 处理数据，例如赋值给变量
