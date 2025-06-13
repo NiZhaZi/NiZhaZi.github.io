@@ -981,17 +981,23 @@
         }
         
         // 页面加载时初始化
+        function sendCarData(data) {
+            carData = data;
+        }
+
         window.onload = function() {
             // 从JSON数据文件加载
             try {
                 // carData = JSON.parse(document.getElementById('carData').textContent);
-                fetch('/data.json')
-                .then(response => response.json()) // 解析 JSON 数据
-                .then(data => {
-                    console.log(data); // 处理数据，例如赋值给变量
-                    carData = data; // 将获取的 JSON 赋值给 `val`
-                })
-                .catch(error => console.error('获取 JSON 失败:', error));
+                $.ajax({
+                    url: "data.json?v=20250613",
+                    // async: false,
+                    success: function (res) {
+                    console.log('carData',res);
+                    sendCarData(data);
+                    // setTableGold(goldData);
+                    },
+                });
 
 
                 // 按圈速排序
