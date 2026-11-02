@@ -9,7 +9,7 @@ window.OceanData = (() => {
     ['黄高鳍刺尾鱼','Yellow tang','Zebrasoma flavescens','热带珊瑚礁','侧扁的亮黄色身体，背鳍与臀鳍轮廓高而圆。','reef',[0], '#f1d65f'],
     ['镊口鱼','Copperband butterflyfish','Chelmon rostratus','热带珊瑚礁','狭长吻部与铜橙色竖纹是鲜明的外形特征。','reef',[0], '#e9bd79'],
     ['女王神仙鱼','Queen angelfish','Holacanthus ciliaris','热带珊瑚礁','蓝黄相间的侧扁体形，额部具有冠状深色斑纹。','reef',[0], '#86c9cb'],
-    ['蓑鲉','Red lionfish','Pterois volitans','珊瑚礁与沉船','扇状胸鳍与醒目的鳍棘构成独特轮廓。游戏中不可吞食。','hazard',[0,4], '#c58b73'],
+    ['蓑鲉','Red lionfish','Pterois volitans','珊瑚礁与沉船','红褐条纹、扇状胸鳍与醒目的鳍棘。对应一代经典蓑鲉形象，按游戏体型参与食物链。','reef',[0,4], '#c58b73'],
     ['虹彩鹦嘴鱼','Rainbow parrotfish','Scarus guacamaia','热带珊瑚礁','粗壮的身体与喙状口部，体表带蓝绿及暖色调。','reef',[0], '#72c8ae'],
     ['斑点隆头鱼','Ballan wrasse','Labrus bergylta','岩礁与海藻区','厚唇与有斑纹的鳞片，体色变化较丰富。','reef',[1], '#b49471'],
     ['欧洲海鲈','European sea bass','Dicentrarchus labrax','近岸与河口','银灰色身躯、深色背部与分明的背鳍。','hunter',[1,2], '#a1c1c9'],
@@ -37,19 +37,62 @@ window.OceanData = (() => {
     ['海月水母','Moon jelly','Aurelia spp.','近岸与上层海洋','半透明伞体与四个环状结构，随水流轻缓脉动。','hazard',[0,1,2,3,4,5,6], '#a9d9e2'],
     ['莱氏拟乌贼','Bigfin reef squid','Sepioteuthis lessoniana','温暖近岸水域','身体两侧的宽鳍与前端腕足，具有喷射游动的轮廓。','squid',[0,2,4], '#c1a7ae'],
     ['约氏黑角鮟鱇','Black seadevil','Melanocetus johnsonii','深海中层','雌鱼具有醒目的头部诱饵器、大口与暗色身体。','deep',[6,7], '#8d939c'],
+    ['海鲂','John Dory','Zeus faber','温带大陆架与近底水域','侧扁的银灰色身体、体侧黑色圆斑与细长背鳍棘。大而斜向上的口可向前伸出，对应一代 J.D. 的真实原型。','hunter',[1,4], '#c2b77e'],
+    ['蓝环神仙鱼','Blue-ringed angelfish','Pomacanthus annularis','热带珊瑚礁','暖褐色体侧分布弧形蓝纹，鳃盖后有蓝色环斑。作为一代 Andy 神仙鱼形象的现实参照。','reef',[0,4], '#cfad64'],
+    ['叉鼻鲀（黄色型）','Guineafowl puffer','Arothron meleagris','热带礁区','圆钝头部、小口与扇形尾鳍；黄色体色型为一代黄色河豚提供现实参照。','reef',[0,2], '#e0cb68'],
+    ['大西洋蓝枪鱼','Atlantic blue marlin','Makaira nigricans','热带与亚热带远洋','蓝色背部、银色侧腹与长枪状吻。真正的嘴在长吻根部，游动时背鳍可收拢。','hunter',[3], '#839fad'],
+    ['地中海银汉鱼','Mediterranean sand smelt','Atherina hepsetus','近岸与河口鱼群','细长半透明身体，体侧贯穿银色纵带。为一代小鱼群提供真实海洋鱼类参照。','school',[1,2,4], '#b7d3d6'],
+    ['白胸刺尾鱼','Powder blue surgeonfish','Acanthurus leucosternon','热带珊瑚礁','粉蓝色身体、黑色面部、白色胸口与黄色背鳍；丰富经典刺尾鱼的真实配色。','reef',[0], '#80bad5'],
+    ['黄尾高鳍刺尾鱼','Yellowtail purple tang','Zebrasoma xanthurum','红海与邻近礁区','紫蓝色的高而侧扁的身体，配有醒目的黄色尾鳍。','reef',[0], '#9388b9'],
+    ['密斑刺鲀','Spot-fin porcupinefish','Diodon hystrix','热带礁区与洞穴','浅褐底色上布满黑斑，体表具有可竖起的棘，圆眼与小嘴十分突出。','reef',[0,4], '#c8b68b'],
+    ['角镰鱼','Moorish idol','Zanclus cornutus','热带珊瑚礁','黑白黄色带与长长的背鳍丝，细吻用于啄取礁面食物。','reef',[0], '#dbc57a'],
+    ['紫金鲈','Royal gramma','Gramma loreto','加勒比礁壁与岩穴','前半身紫色，后半身金黄色，背鳍带小黑斑。','reef',[0,4], '#a97dcc'],
+    ['角箱鲀','Longhorn cowfish','Lactoria cornuta','热带沙地与海草床','体表骨板形成箱状躯干，头部和尾部有角状突起。','reef',[0,2], '#d4c575'],
+    ['条纹羊鱼','Striped red mullet','Mullus surmuletus','温带沙底与岩礁','体侧红色纵带，下颌的两根触须用于寻找底栖食物。','bottom',[1,4], '#c48d7b'],
+    ['蓝鳍鲂鮄','Bluefin gurnard','Chelidonichthys kumu','温带大陆架海底','红褐色身体与蓝绿色大胸鳍；游离胸鳍条可在底部探查食物。','bottom',[1,4,5], '#bf8f78'],
+    ['长吻海马','Longsnout seahorse','Hippocampus reidi','热带近岸海草与红树林','直立身体、管状长吻与可卷曲的尾巴，依靠小背鳍缓慢移动。','bottom',[0,2], '#d3b76c'],
+    ['普通章鱼','Common octopus','Octopus vulgaris','温暖海底与岩穴','柔软的囊状身体连接八条腕，皮肤斑驳多变，嘴位于腕的中央根部。','bottom',[1,2,4], '#b79985'],
+    ['欧洲乌贼','Common cuttlefish','Sepia officinalis','温带近岸海底','宽扁外套膜两侧有波浪形鳍裙，腕足前伸，体表常见斑驳条纹。','squid',[1,2,4], '#c4b5a0'],
+    ['大砗磲','Giant clam','Tridacna gigas','热带浅礁','厚重波褶双壳与彩色外套膜。停留在海底，作为安全环境生物出现。','neutral',[0], '#9dbbb0'],
+    ['蓝指海星','Blue sea star','Linckia laevigata','热带浅海礁坪','五条蓝色腕从中央盘伸出，在海底缓慢爬行。游戏中是安全环境生物。','neutral',[0,2], '#6ba3dc'],
+    ['翻车鱼','Ocean sunfish','Mola mola','温带与热带远洋','圆而侧扁的躯干、高背鳍与臀鳍，尾端是短而宽的舵鳍。游戏中温和巡游。','neutral',[3,6], '#acb6be'],
+    ['浅海长尾鲨','Common thresher shark','Alopias vulpinus','温带与亚热带沿岸外海','尾鳍上叶极长，身体背面蓝灰、腹面较浅。嘴位于短吻下方。','apex',[3,5], '#9bb2bf'],
+    ['大青鲨','Blue shark','Prionace glauca','温带与热带外海','深蓝背部、修长胸鳍与纤细躯干，在开放水域持续游动。','apex',[3,6], '#779ebd'],
+    ['欧氏尖吻鲛','Goblin shark','Mitsukurina owstoni','深水大陆坡','长而扁的吻与可前突的颌；嘴在吻下方，身体偏粉灰色。','apex',[6,7], '#c3a1a8'],
+    ['皇带鱼','Giant oarfish','Regalecus glesne','远洋中层水域','银色带状身体，红色背鳍沿身体延伸，头顶有高耸的鳍条。作为环境生物游过。','neutral',[3,6], '#b8b5c0'],
+    ['鹦鹉螺','Chambered nautilus','Nautilus pompilius','热带礁坡深水','带棕褐色横纹的螺旋外壳，多根触手从壳口伸出；嘴位于触手根部。','squid',[4,6], '#c7b094'],
+    ['太平洋蝰鱼','Pacific viperfish','Chauliodus macouni','深海中层','细长身体、大口尖牙与成排发光器，头部上方有细长背鳍条。','deep',[6,7], '#8b9aa8'],
+    ['大西洋黑巨口鱼','Black dragonfish','Idiacanthus atlanticus','热带与亚热带深海','雌鱼呈细长黑色，颏部有发光须，长牙和腹面发光器构成鲜明轮廓。','deep',[6,7], '#81909e'],
+    ['半裸银斧鱼','Half-naked hatchetfish','Argyropelecus hemigymnus','深海中层','银色高而侧扁的前躯像小斧头，腹面发光器用于融入上方微光。','deep',[6,7], '#a0bbc9'],
+    ['斑点灯笼鱼','Spotted lanternfish','Myctophum punctatum','远洋中层水域','小型银灰色身体与排列有序的发光器，是深海食物网的重要小鱼。','school',[6,7], '#98b4bb'],
+    ['角高体金眼鲷','Common fangtooth','Anoplogaster cornuta','深海中层至深层','虽然体型不大，却有粗壮头部、大口与极长牙齿，身体呈深褐色。','deep',[6,7], '#9e9893'],
+    ['宽咽鱼','Pelican gulper eel','Eurypharynx pelecanoides','深海中层与深层','硕大的囊状口部连接细长黑色身体，尾端细如鞭。','deep',[6,7], '#8d939f'],
+    ['管眼鱼','Barreleye','Macropinna microstoma','北太平洋深海中层','透明头罩内可见绿色管状眼。前端小点不是主眼，嘴在头部最前下方。','deep',[6], '#92b5b1'],
+    ['吸血鬼乌贼','Vampire squid','Vampyroteuthis infernalis','低氧深海水层','红褐色身体和连接腕的蹼膜。实际以海洋雪等碎屑为食，游戏中是安全环境生物。','neutral',[6,7], '#b28285'],
+    ['大王乌贼','Giant squid','Architeuthis dux','远洋深水','长筒形外套膜、大眼、八条腕和两条更长的触腕；嘴藏在腕足根部。','deep',[6,7], '#bb9390'],
+    ['大王具足虫','Giant isopod','Bathynomus giganteus','深水大陆坡海底','分节甲壳、复眼与多对步足。沿海底缓慢爬行。','bottom',[6,7], '#b1a9a8'],
+    ['铠甲虾','Squat lobster','Munidopsis spp.','深水海底与部分热泉区域','淡色甲壳、细长螯足和折叠腹部，贴近底部活动。','bottom',[7], '#cfb9b0'],
+    ['海猪','Sea pig','Scotoplanes spp.','深海软底','半透明的粉色海参，用管足在软泥上行走。游戏中仅作安全的海底环境生物。','neutral',[7], '#caa4bd'],
   ];
-  const species = rows.map((r,id)=>({id,name:r[0],en:r[1],latin:r[2],habitat:r[3],note:r[4],role:r[5],maps:r[6],color:r[7],sheet:id<18?0:1,cell:id%18}));
+  const classicCharacters={37:'Andy',8:'Leon',35:'Eddie',36:'J.D.',31:'Orville'};
+  const originals=new Set([4,5,8,9,17,18,19,26,31,35,36,37,38,39,40,41,42]);
+  const benthic=new Set([22,47,48,49,50,52,53,69,70,71]),rigid=new Set([28,33,49,50,51,52,53,54,59,67,68,69,70,71,34]);
+  const species = rows.map((r,id)=>({id,name:r[0],en:r[1],latin:r[2],habitat:r[3],note:r[4],role:r[5],maps:r[6],color:r[7],sheet:Math.floor(id/18),cell:id%18,classic:originals.has(id),character:classicCharacters[id]||'',benthic:benthic.has(id),rigid:rigid.has(id)}));
+  const classicPlayers=[37,8,35,36,31];
   const maps = [
-    {id:0,name:'珊瑚浅海',en:'CORAL LAGOON',depth:'08 — 30 M',color:'#64dfcd',desc:'日光穿过清澈海水。穿行珊瑚之间，从一条小鱼开始。',player:13,small:[0,1,3,4,5,6],medium:[7,9,10,13],large:[14,15,17],predators:[24,17],hazards:[8,33],ambient:[28,29,27],current:0,dark:0,stages:['初入浅海','珊瑚间隙','银色鱼群','暗礁猎手','潮汐盛宴','礁区之王']},
-    {id:1,name:'海带森林',en:'KELP FOREST',depth:'15 — 45 M',color:'#b3cd83',desc:'海带随浪摇曳。沿着光柱游动，小心林间悄然靠近的身影。',player:11,small:[0,1,2,12],medium:[10,11,22],large:[11,20,17],predators:[26,17],hazards:[33],ambient:[30],current:12,dark:0,stages:['林间微光','摇曳长廊','猎手的影子','金色波纹','逆流前行','森林领主']},
-    {id:2,name:'红树林河口',en:'MANGROVE ESTUARY',depth:'02 — 15 M',color:'#d5c38c',desc:'根系围成隐秘的育幼场。顺应河口潮流，寻找成群的小鱼。',player:11,small:[0,1,3,34],medium:[11,13,21,22],large:[15,17,23],predators:[17,24],hazards:[33],ambient:[29,30],current:28,dark:0,stages:['根系迷宫','涨潮时分','河口快游','沙洲伏击','银鳞漩涡','潮间霸主']},
-    {id:3,name:'蔚蓝远洋',en:'THE OPEN BLUE',depth:'30 — 180 M',color:'#79c9ef',desc:'离开海岸，进入无垠的蓝。金枪鱼、鲨鱼与远方的海洋巨兽。',player:16,small:[0,1,2,12],medium:[12,15,16,18],large:[17,18,19],predators:[24,25,26,31],hazards:[33],ambient:[27,28,30,32],current:18,dark:0,stages:['离岸航线','追逐蓝光','金枪鱼风暴','巨兽来访','远洋狂潮','蓝海王者']},
-    {id:4,name:'沉船遗迹',en:'THE LOST WRECK',depth:'40 — 100 M',color:'#a5bbc7',desc:'被海洋收藏的遗迹。石斑鱼隐入船舱，蓑鲉守候在暗处。',player:14,small:[0,1,6,34],medium:[13,14,23],large:[14,17,23],predators:[17,25],hazards:[8,33],ambient:[29],current:6,dark:.16,stages:['无声甲板','锈色回廊','船舱藏影','海底宝藏','残骸追逐','遗迹守望']},
-    {id:5,name:'极地冰海',en:'POLAR WATERS',depth:'10 — 150 M',color:'#b4e3ec',desc:'浮冰之下，冷蓝色的世界依然生机勃勃。留意虎鲸的巡游路线。',player:21,small:[0,1,2],medium:[20,21,22,12],large:[19,20,21],predators:[26,31],hazards:[33],ambient:[32],current:22,dark:.07,stages:['冰下之光','寒流鱼群','蓝色裂隙','虎鲸航迹','冰海竞速','极境生存']},
-    {id:6,name:'暮光水域',en:'THE TWILIGHT ZONE',depth:'200 — 1,000 M',color:'#9eafe4',desc:'日光渐渐退去，生物微光浮现。视野收窄，保持耐心。',player:35,small:[34],medium:[34,35],large:[35,34],predators:[35],hazards:[],ambient:[],current:8,dark:.32,stages:['光的边缘','海洋之雪','微光猎手','无声迁徙','幽蓝脉冲','暮光之主']},
-    {id:7,name:'深渊热泉',en:'THE ABYSS',depth:'2,000 M +',color:'#bca6df',desc:'最后的幻想挑战。沿着幽微热泉，在深色水幕中完成食物链的攀登。',player:35,small:[34],medium:[35,34],large:[35],predators:[35],hazards:[],ambient:[],current:10,dark:.43,stages:['深渊入口','黑色烟囱','热泉边缘','最后的光','寂静狂潮','深海食物链']},
+    {id:0,name:'珊瑚浅海',en:'CORAL LAGOON',depth:'08 — 30 M',color:'#64dfcd',desc:'日光穿过清澈海水。穿行珊瑚之间，从一条小鱼开始。',player:37,small:[0,1,3,4,5,6,40,45,49],medium:[7,8,9,13,37,38,41,42,44,46],large:[14,15,17,43],predators:[24,17],hazards:[33],ambient:[28,29,27,52,53],current:0,dark:0,stages:['初入浅海','珊瑚间隙','银色鱼群','暗礁猎手','潮汐盛宴','礁区之王']},
+    {id:1,name:'海带森林',en:'KELP FOREST',depth:'15 — 45 M',color:'#b3cd83',desc:'海带随浪摇曳。沿着光柱游动，小心林间悄然靠近的身影。',player:36,small:[0,1,2,12,40],medium:[10,11,22,36,47,48,51],large:[11,20,36,50],predators:[26,17],hazards:[33],ambient:[30],current:12,dark:0,stages:['林间微光','摇曳长廊','猎手的影子','金色波纹','逆流前行','森林领主']},
+    {id:2,name:'红树林河口',en:'MANGROVE ESTUARY',depth:'02 — 15 M',color:'#d5c38c',desc:'根系围成隐秘的育幼场。顺应河口潮流，寻找成群的小鱼。',player:11,small:[0,1,3,34,40,49],medium:[11,13,21,22,38,46,51],large:[15,17,50],predators:[17,24],hazards:[33],ambient:[29,30,53],current:28,dark:0,stages:['根系迷宫','涨潮时分','河口快游','沙洲伏击','银鳞漩涡','潮间霸主']},
+    {id:3,name:'蔚蓝远洋',en:'THE OPEN BLUE',depth:'30 — 180 M',color:'#79c9ef',desc:'离开海岸，进入无垠的蓝。金枪鱼、鲨鱼与远方的海洋巨兽。',player:17,small:[0,1,2,12],medium:[12,15,16,18],large:[17,18,19,39],predators:[24,25,26,55,56],hazards:[33],ambient:[27,28,30,32,54,58],current:18,dark:0,stages:['离岸航线','追逐蓝光','金枪鱼风暴','巨兽来访','远洋狂潮','蓝海王者']},
+    {id:4,name:'沉船遗迹',en:'THE LOST WRECK',depth:'40 — 100 M',color:'#a5bbc7',desc:'被海洋收藏的遗迹。石斑鱼隐入船舱，蓑鲉守候在暗处。',player:36,small:[0,1,6,34,40,45],medium:[8,13,14,36,37,43,47,48,51,59],large:[14,17,23,36,50],predators:[17,25],hazards:[33],ambient:[29],current:6,dark:.16,stages:['无声甲板','锈色回廊','船舱藏影','海底宝藏','残骸追逐','遗迹守望']},
+    {id:5,name:'极地冰海',en:'POLAR WATERS',depth:'10 — 150 M',color:'#b4e3ec',desc:'浮冰之下，冷蓝色的世界依然生机勃勃。留意虎鲸的巡游路线。',player:31,small:[0,1,2],medium:[20,21,22,12],large:[19,20,21,48],predators:[26,31,55],hazards:[33],ambient:[32],current:22,dark:.07,stages:['冰下之光','寒流鱼群','蓝色裂隙','虎鲸航迹','冰海竞速','极境生存']},
+    {id:6,name:'暮光水域',en:'THE TWILIGHT ZONE',depth:'200 — 1,000 M',color:'#9eafe4',desc:'日光渐渐退去，生物微光浮现。视野收窄，保持耐心。',player:60,small:[62,63,66],medium:[35,59,60,62,64,66,69],large:[35,60,61,64,65],predators:[56,57,68],hazards:[],ambient:[54,58,67],current:8,dark:.32,stages:['光的边缘','海洋之雪','微光猎手','无声迁徙','幽蓝脉冲','暮光之主']},
+    {id:7,name:'深渊热泉',en:'THE ABYSS',depth:'2,000 M +',color:'#bca6df',desc:'沿着幽微热泉，遇见大王具足虫、铠甲虾与海猪。深水猎手穿过暗处。',player:35,small:[62,63,70],medium:[35,60,64,69,70],large:[35,60,61,64,65],predators:[57,65,68],hazards:[],ambient:[67,71],current:10,dark:.43,stages:['深渊入口','黑色烟囱','热泉边缘','最后的光','寂静狂潮','深海食物链']},
   ];
+  for(const s of species){
+    s.maps=maps.filter(m=>['small','medium','large','predators','hazards','ambient'].some(pool=>m[pool].includes(s.id))).map(m=>m.id);
+  }
   const levels=maps.flatMap(m=>m.stages.map((title,n)=>({id:m.id*6+n,map:m.id,local:n,title,goal:64+n*9+m.id*4,time:170-n*6,density:30+n*2,threats:2+Math.floor(n/2),subtitle:n===5?'海域终章':n<2?'适应海域':n<4?'成长挑战':'生存进阶'})));
-  const roleNames={school:'群游鱼类',reef:'礁区鱼类',hunter:'捕食鱼类',apex:'大型追逐者',neutral:'环境生物',hazard:'接触危险',bottom:'底栖鱼类',squid:'敏捷游泳者',deep:'深水猎手'};
-  return {species,maps,levels,roleNames};
+  const roleNames={school:'群游鱼类',reef:'礁区鱼类',hunter:'捕食鱼类',apex:'大型追逐者',neutral:'环境生物',hazard:'接触危险',bottom:'近底生物',squid:'敏捷游泳者',deep:'深水猎手'};
+  return {species,maps,levels,roleNames,classicPlayers};
 })();

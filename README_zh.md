@@ -1,4 +1,4 @@
-# 深海食物链 · Ocean Feast — Nature Edition 2.0
+# 深海食物链 · Ocean Feast — Nature Edition 2.1
 
 致敬《Feeding Frenzy》一代吞食成长玩法的原创浏览器游戏。并非官方作品，也没有使用原游戏素材。
 
@@ -11,7 +11,9 @@
 ## 内容
 
 - 8 个海域、48 个可直接选择的关卡，每关分三段成长。
-- 36 种海洋生物原型与可搜索图鉴；玩家在不同海域控制不同的鱼。
+- 72 个可遇见的海洋生物图鉴条目。海域选择页可切换推荐主角或五种一代主角的写实原型。
+- 海鲂可在海带森林与沉船遗迹遇见。图鉴支持按经典原型和海域筛选，按中文名、英文名、学名或主角名搜索。
+- 嘴部与较小猎物的躯干相交才会吞食。每种生物有独立口部位置，随朝向、倾斜和大小变化。冲刺沿嘴部路径连续检测，吸食把小鱼拉到嘴边。大型捕食者也用嘴攻击，水母按身体接触判定。
 - 鼠标、WASD、方向键、触控拖动；空格或右键冲刺，E 吸食附近较小的鱼，Esc / P 暂停。
 - 连续吞食奖励、十连吃狂潮、珍珠、充能气泡、捕食者追逐、生命及星级结算。
 - 自由探索没有倒计时；每次填满成长条开启新一轮并保留本次分数，生命仍有限。
@@ -20,22 +22,28 @@
 
 ## 美术与生态范围
 
-海域与生物素材由内置图像生成工具制作，采用写实自然史插画 / 水下摄影风格。它们不是科学级生物模型。体型比例、捕食关系、地域组合和出现深度按街机玩法作了调整；深海章节沿用部分头足类轮廓并加入艺术化微光。素材是 2D 透明图集，鱼尾通过实时变形驱动，并非完整 3D 模型。
+海域与生物素材由内置图像生成工具制作，采用写实自然史插画 / 水下摄影风格。它们不是科学级生物模型。体型比例、捕食关系、地域组合和出现深度按街机玩法作了调整；暮光与深渊海域加入蝰鱼、灯笼鱼、宽咽鱼、管眼鱼、吸血鬼乌贼、具足虫和热泉底栖生物，照明经过艺术化处理。素材是 2D 透明图集，鱼尾通过实时变形驱动，并非完整 3D 模型。
 
-现实生态资料参考：
+现实原型与经典角色资料
+
+- https://australian.museum/learn/animals/fishes/john-dory-zeus-faber/
+- https://www.mbari.org/education/animals-of-the-deep/
+- https://fishdb.sinica.edu.tw/taxon/382980-fishdb
+- https://wiki-origin.giantbomb.com/wiki/Games/Feeding_Frenzy
 - https://www.montereybayaquarium.org/visit/exhibits/open-sea/
 - https://www.montereybayaquarium.org/visit/exhibits/kelp-forest
 - https://www.montereybayaquarium.org/animals-the-ocean/animals-a-to-z/moon-jelly
 
-鲸鲨、蝠鲼、绿海龟、宽吻海豚和座头鲸在本作中仅作为安全的环境生物。蓑鲉、水母为接触障碍，其余互动按相对游戏体型决定。
+鲸鲨、座头鲸、宽吻海豚、砗磲、蓝指海星、吸血鬼乌贼和海猪等为安全环境生物。蓑鲉按游戏内相对大小参与食物链。生物类群的现实代表与原作角色名分别记录。原有浏览器存档沿用同一个键，旧版星级、最佳成绩和图鉴记录均可继续使用。
 
 ## 生成离线包
 
-`python scripts/package-offline.py /absolute/path/Ocean_Feast_Wild_v2.0.zip`
+`python scripts/package-offline.py /absolute/path/Ocean_Feast_Wild_v2.1.zip`
 
 ## 源文件
 
 - `data.js`：生物、地图、关卡和难度。
+- `geometry.js`：共享的嘴部、躯干与移动路径判定。
 - `engine.js`：移动、追逐、成长、技能、碰撞、音效及结算。
 - `render.js`：生物图集提取、鱼尾动画、海域背景与粒子。
 - `app.js`：界面、输入、图鉴、本地存档。

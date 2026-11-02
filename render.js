@@ -11,10 +11,10 @@ window.OceanRender = (() => {
     resize(){const b=this.canvas.getBoundingClientRect();this.width=b.width;this.height=b.height;this.dpr=Math.min(devicePixelRatio||1,this.quality?2:1.25);this.canvas.width=Math.round(b.width*this.dpr);this.canvas.height=Math.round(b.height*this.dpr);this.W=b.width<700?800:1440;this.H=this.W*b.height/b.width;this.scale=b.width/this.W;this.bgCache=null;}
     async load(progress){
       if(location.protocol==='file:'&&!window.OceanEmbedded){await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='assets/offline-images.js';script.onload=resolve;script.onerror=()=>reject(new Error('请解压完整离线包后再打开 index.html'));document.head.appendChild(script);});}
-      let completed=0;const files=['biomes-a.png','biomes-b.png','fauna-a.png','fauna-b.png'];
-      await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{this.images[file]=im;progress(++completed,4);resolve()};im.onerror=()=>reject(new Error('素材加载失败：'+file));im.src=window.OceanEmbedded?.[file]||'assets/'+file;})));
+      let completed=0;const files=['biomes-a.png','biomes-b.png',...FaunaBounds.sheets.map(s=>s.file)];
+      await Promise.all(files.map(file=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{this.images[file]=im;progress(++completed,files.length);resolve()};im.onerror=()=>reject(new Error('素材加载失败：'+file));im.src=window.OceanEmbedded?.[file]||'assets/'+file;})));
       for(const sheet of FaunaBounds.sheets)this.extract(sheet);
-      if(this.sprites.filter(Boolean).length!==36)throw new Error('生物素材不完整');
+      if(this.sprites.filter(Boolean).length!==OceanData.species.length)throw new Error('生物素材不完整');
       this.ready=true;
     }
     extract(sheet){
@@ -44,12 +44,11 @@ window.OceanRender = (() => {
     fish(c,e,t,player=false){
       const sp=this.sprites[e.id];if(!sp)return;const size=e.size,h=size*sp.height/sp.width,dir=e.dir||1;
       c.save();c.translate(e.x,e.y);c.globalAlpha=e.alpha??1;
-      const angle=clamp((e.vy||0)/Math.max(70,Math.abs(e.vx||100)),-.30,.30);
-      c.rotate(angle*dir);c.scale(dir,1);
+      c.rotate(OceanGeometry.angle(e));c.scale(dir,1);
       if(player){c.save();c.globalAlpha=(e.invincible>0?.40+.30*Math.sin(t*14):.6);c.strokeStyle=e.frenzy>0?'#f6df95':'#cdf5dc';c.lineWidth=1.4;c.beginPath();c.ellipse(0,0,size*.58,h*.62+7,0,0,TAU);c.stroke();c.restore();}
       if(e.invincible>0&&Math.floor(t*12)%2===0)c.globalAlpha*=.45;
-      const pieces=this.quality&&!this.reduced?10:1,speed=Math.min(1.9,.7+Math.abs(e.vx||80)/200),amp=size*.022;
-      for(let i=0;i<pieces;i++){const u=i/pieces,sw=sp.width/pieces,dx=-size/2+i*size/pieces,dy=pieces>1?Math.sin(t*8*speed-(1-u)*4+(e.phase||0))*amp*Math.pow(1-u,2):0;const extra=i<pieces-1?.6:0;c.drawImage(sp,i*sw,0,sw,sp.height,dx,-h/2+dy,size/pieces+extra,h);}
+      const pieces=this.quality&&!this.reduced&&!OceanData.species[e.id].rigid?10:1,speed=Math.min(1.9,.7+Math.abs(e.vx||80)/200),amp=size*.022;
+      for(let i=0;i<pieces;i++){const u=i/pieces,sw=sp.width/pieces,dx=-size/2+i*size/pieces,dy=pieces>1&&u<.4?Math.sin(t*8*speed-(1-u)*4+(e.phase||0))*amp*Math.pow(1-u/.4,2):0;const extra=i<pieces-1?.6:0;c.drawImage(sp,i*sw,0,sw,sp.height,dx,-h/2+dy,size/pieces+extra,h);}
       c.restore();
     }
     background(map,t){
@@ -65,7 +64,7 @@ window.OceanRender = (() => {
     ambient(map,t,home=true){
       this.start();this.background(map,t);if(!this.ready)return;const c=this.ctx,w=this.W,h=this.H,m=OceanData.maps[map];
       for(let i=0;i<11;i++){const id=[...m.small,...m.medium][i%([...m.small,...m.medium].length)],speed=17+i*2,x=((i*.16*w+t*speed)%(w+200))-100,y=h*(.22+(i%4)*.11)+Math.sin(t*.4+i)*12;this.fish(c,{id,x,y,size:31+(i%4)*12,dir:i%3?1:-1,alpha:.18+(i%3)*.1,phase:i},t);}
-      if(home){const narrow=this.width<700;const hero=map===0?4:map===1?10:map===2?11:map===3?18:map===4?14:map===5?21:35;
+      if(home){const narrow=this.width<700;const hero=m.player;
         this.fish(c,{id:m.ambient[0]??m.predators[0],x:w*.79+Math.sin(t*.07)*28,y:h*.24,size:narrow?210:300,dir:-1,alpha:.25,phase:3},t);
         this.fish(c,{id:hero,x:w*(narrow?.83:.73)+Math.sin(t*.24)*22,y:h*(narrow?.32:.43)+Math.sin(t*.45)*13,size:narrow?310:390,dir:-1,alpha:narrow?.62:1},t);
         if(!narrow)this.fish(c,{id:m.small[Math.min(2,m.small.length-1)],x:w*.91+Math.sin(t*.28)*10,y:h*.59+Math.sin(t*.4)*14,size:100,dir:-1,alpha:.8,phase:4},t);
@@ -79,9 +78,11 @@ window.OceanRender = (() => {
         this.fish(c,f,t);const dist=Math.hypot(f.x-g.p.x,f.y-g.p.y),edible=g.canEat(f),danger=g.isDanger(f),sp=this.sprites[f.id],fh=f.size*(sp?sp.height/sp.width:.4);
         if(dist<220&&this.labels){if(edible||danger){c.fillStyle=edible?'#c6ebc5':'#f4ba99';c.globalAlpha=.85;c.beginPath();c.arc(f.x,f.y-fh*.55-9,2.3,0,TAU);c.fill();c.globalAlpha=1;}if(danger&&f.chasing){c.font='bold 16px sans-serif';c.textAlign='center';c.fillStyle='#ffe1b8';c.fillText('!',f.x,f.y-fh*.55-18);}}
       }
-      if(g.suction>0){c.save();const r=110+Math.sin(t*8)*15;c.strokeStyle='#daf5dc66';c.lineWidth=1.5;c.setLineDash([4,10]);c.beginPath();c.arc(g.p.x,g.p.y,r,0,TAU);c.stroke();c.restore();}
+      const mouth=OceanGeometry.mouth(g.p);
+      if(g.suction>0){c.save();const radius=110+Math.sin(t*8)*15;c.strokeStyle='#daf5dc66';c.lineWidth=1.5;c.setLineDash([4,10]);c.beginPath();c.arc(mouth.x,mouth.y,radius,0,TAU);c.stroke();c.restore();}
       for(const p of g.pickups){const a=.7+Math.sin(t*4+p.x)*.2;c.save();c.globalAlpha=a;c.fillStyle=p.kind==='pearl'?'#e9ddad':'#a2e4e5';c.strokeStyle='#e7f6dd88';c.lineWidth=1.5;c.beginPath();c.arc(p.x,p.y,9+Math.sin(t*3)*1.1,0,TAU);c.fill();c.stroke();c.globalAlpha=.2;c.beginPath();c.arc(p.x,p.y,16,0,TAU);c.stroke();c.restore();}
       this.fish(c,g.p,t,true);
+      if(g.p.biteFlash>0){c.save();c.globalAlpha=g.p.biteFlash/.19;c.strokeStyle='#efffd3';c.lineWidth=1.6;c.beginPath();c.arc(mouth.x,mouth.y,mouth.r+4+(1-g.p.biteFlash/.19)*7,0,TAU);c.stroke();c.restore();}
       if(g.elapsed<9){c.fillStyle='#e2f4db';c.font='12px sans-serif';c.textAlign='center';c.fillText('你',g.p.x,g.p.y-g.p.size*.35-19);}
       if(g.map.dark){const grad=c.createRadialGradient(g.p.x,g.p.y,100,g.p.x,g.p.y,Math.max(this.W,this.H)*.7);grad.addColorStop(0,'#01081700');grad.addColorStop(1,`rgba(1,5,18,${g.map.dark})`);c.fillStyle=grad;c.fillRect(0,0,this.W,this.H);}
       for(const p of g.particles){c.globalAlpha=Math.min(1,p.life/p.max);c.fillStyle=p.color;if(p.text){c.font=`${p.big?'600 23':'15'}px sans-serif`;c.textAlign='center';c.fillText(p.text,p.x,p.y);}else{c.beginPath();c.arc(p.x,p.y,p.r,0,TAU);c.fill();}}c.globalAlpha=1;

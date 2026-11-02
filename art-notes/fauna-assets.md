@@ -36,3 +36,7 @@ ROW 5: common bottlenose dolphin Tursiops truncatus, smooth natural gray skin wi
 ROW 6: moon jellyfish Aurelia aurita, realistic translucent pale lavender dome and short fine trailing tentacles, umbrella upright with vertical downward tentacles, fully inside cell; bigfin reef squid Sepioteuthis lessoniana, golden brown speckled translucent squid with long mantle and elongated side fins, tentacles oriented rightward; female black seadevil anglerfish Melanocetus johnsonii, small dark brown black bulbous deep-sea fish head to right with toothy mouth and a thin arched bioluminescent lure, natural proportions.
 Keep exact 3-column 6-row grid alignment. Every animal complete and separated.
 
+
+## Nature Edition 2.1
+
+Atlas C and D extend the collection to 72 marine organisms. Their generation notes are in `fauna-c-notes.md` and `fauna-d-notes.md`. Each entry in `dist/assets/fauna-bounds.json` contains a mouth point and body ellipse, normalized to the padded cutout used by the renderer.
